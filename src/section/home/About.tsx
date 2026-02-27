@@ -34,7 +34,7 @@ const About = () => {
             Icon: customer
         }
     ]
-    const About = { title: "About our company", subTitle: "Vilora Technologies", details: "We are a team of developers and agile professionals collaborating for one mission in order to address real-life challenges using technology.", discripition: "VILORA Technologies is a Pondicherry based software company, managed by highly experienced information technology professionals and offers wide range of services be it Software Development, Mobile Apps Development or Website Application Development, Quality Assurance and implementation. VILORA has considerable experience delivering solutions in single and multi-operating system environments.VILORA polish & streamline your idea before we start our designs & build your dream project. It realizes the importance of functional knowledge and its impact in developing business solutions. We constantly strive to be a leading technology firm with profound business and functional knowledge, the key to the company's success is the maintenance of a close working relationship with the clients through ensuring the best possible solutions to their needs to establish and maintain a thorough knowledge and understanding of client's objective and help them maximize the benefits." }
+    const About = { title: "About our company", subTitle: "Vilora Technologies", details: "We are a team of developers and agile professionals collaborating for one mission in order to address real-life challenges using technology.", discripition: "VILORA Technologies is a Pondicherry-based software company led by experienced IT professionals, offering services in software development, mobile app development, web application development, quality assurance, and implementation. With strong expertise in single and multi-operating system environments, VILORA refines and streamlines ideas before designing and building innovative solutions. The company combines technical excellence with deep functional knowledge to deliver effective business solutions, maintaining close client relationships to understand objectives and maximize results." }
     const evolution = { title: "Our evolution", details: "'Founded in 2002 by Burdee Ncolase en. our firm started with our great vision to bring innovative solutions of businesses facing unprecedented challenges. That began as a small consultings firm quickly evolved into a trusted partner for companies around the globe . Our journey into began with a simple idea thats offer unparalleled consulting services empower Our core values of integrity, innovation, and excellence guide everything we do leading the wave in consulting's.'" }
     const calculation = [
         { text: "Complete project", number: "93%" },
@@ -77,15 +77,13 @@ const About = () => {
 
                     </div>
                     <div className="">
-                        <span className="text-sm text-[#364052]">{About.discripition}</span>
-                        <div className="bg-[#0b1628] p-1 m-4 rounded-4xl flex items-center w-fit">
+                        <span className="text-md text-[#364052]">{About.discripition}</span>
+                        <div className="bg-[#0b1628] text-white pr-3 p-1 m-4 rounded-4xl flex items-center w-fit">
                             <div className="bg-[#0075FF] p-2 w-fit rounded-full"><ArrowRight /></div>Connect with us
                         </div>
                     </div>
                 </div>
-                <div className="">
                     <Card />
-                </div>
                 <div className="grid md:grid-cols-4 m-5 gap-5">
                     {
                         setApart.map(({ title, detail, Icon }) => (

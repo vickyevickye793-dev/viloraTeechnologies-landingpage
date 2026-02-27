@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import bgImg from "../../../public/assets/services/page-Head.webp"
 import works from "../../../public/assets/work_bg.jpg"
@@ -23,119 +24,149 @@ import Project18 from "../../../public/assets/Projects/project18.png"
 
 import { ArrowRight } from "lucide-react"
 import { url } from "inspector"
+import { useState } from "react"
 const OurWorks = () => {
-    const button = ["Show All", "Mobile Apps", "Online Shoping", "Health Care", "Tour Sites", "Studio", "Other sites"]
+    const [data, setData] = useState("")
+    const button = [
+        { label: "Mobile Apps", value: "MobilApp" },
+        { label: "Online Shopping", value: "onlineShopping" },
+        { label: "Health Care", value: "healthCare" },
+        { label: "Tour Sites", value: "toursite" },
+        { label: "Studio", value: "studio" },
+        { label: "Other Sites", value: "OtherSites" }
+    ];
     const projects = [
         {
             id: 1,
             name: "Singatour",
             img: Project1,
-            url: "https://singatour.com/"
+            url: "https://singatour.com/",
+            category: "toursite"
         },
         {
             id: 2,
             name: "BEN Forum",
             img: Project2,
-            url: "http://benforum.com/index.html"
+            url: "http://benforum.com/index.html",
+            category: "OtherSites"
         },
         {
             id: 3,
             name: "Mirthi Studios",
             img: Project3,
-            url: "http://mirthistudios.com/"
+            url: "http://mirthistudios.com/",
+            category: "studio"
         },
         {
             id: 4,
-            name:"Shiny Pearls Dental Care",
+            name: "Shiny Pearls Dental Care",
             img: Project4,
-            url: "http://shinypearlsdentalcare.com/"
+            url: "http://shinypearlsdentalcare.com/",
+            category: "healthCare"
         },
         {
-            id:5,
-            name:"Amman Organic ",
-            img:Project5,
-            url:"http://103.186.185.245:8087/index.html"
+            id: 5,
+            name: "Amman Organic ",
+            img: Project5,
+            url: "http://103.186.185.245:8087/index.html",
+            category: "onlineShopping"
         },
         {
-            id:6,
-            name:"Plan Mydream Event",
-            img:Project6,
-            url:"#"
+            id: 6,
+            name: "Plan Mydream Event",
+            img: Project6,
+            url: "#",
+            category: "studio"
         },
         {
-            id:7,
-            name:"Vilora Shopping",
-            img:Project7,
-            url:"#"
+            id: 7,
+            name: "Vilora Shopping",
+            img: Project7,
+            url: "#",
+            category: "onlineShopping"
         },
         {
-            id:8,
-            name:"Infinite Studio",
-            img:Project8,
-            url:"#"
+            id: 8,
+            name: "Infinite Studio",
+            img: Project8,
+            url: "#",
+            category: "studio"
         },
         {
-            id:9,
-            name:"Niva Foods",
-            img:Project9,
-            url:"https://www.nivafoods.com.sg/"
+            id: 9,
+            name: "Niva Foods",
+            img: Project9,
+            url: "https://www.nivafoods.com.sg/",
+            category: "onlineShopping"
         },
         {
-            id:10,
-            name:"Happy Moment",
-            img:Project10,
-            url:"#"
+            id: 10,
+            name: "Happy Moment",
+            img: Project10,
+            url: "#",
+            category: "studio"
         },
         {
-            id:11,
-            name:"Pondy Bajar",
-            img:Project11,
-            url:"#"
+            id: 11,
+            name: "Pondy Bajar",
+            img: Project11,
+            url: "#",
+            category: "onlineShopping"
         },
         {
-            id:12,
-            name:"Cervo Care",
-            img:Project12,
-            url:"https://cervocare.com/"
+            id: 12,
+            name: "Cervo Care",
+            img: Project12,
+            url: "https://cervocare.com/",
+            category: "healthCare"
         },
         {
-            id:13,
-            name:"Aeroseptix",
-            img:Project13,
-            url:"http://aeroseptix.in/"
+            id: 13,
+            name: "Aeroseptix",
+            img: Project13,
+            url: "http://aeroseptix.in/",
+            category: "onlineShopping"
         },
         {
-            id:14,
-            name:"Bharrathividyashram",
-            img:Project14,
-            url:"#"
+            id: 14,
+            name: "Bharrathividyashram",
+            img: Project14,
+            url: "#",
+            category: "OtherSites"
         },
         {
-            id:15,
-            name:"Nadi Astro Bhava",
-            img:Project15,
-            url:"https://nadiastrobhava.com/"
+            id: 15,
+            name: "Nadi Astro Bhava",
+            img: Project15,
+            url: "https://nadiastrobhava.com/",
+            category: "OtherSites"
         },
         {
-            id:16,
-            name:"Job Portal",
-            img:Project16,
-            url:"#"
+            id: 16,
+            name: "Job Portal",
+            img: Project16,
+            url: "#",
+            category: "OtherSites"
         },
         {
-            id:17,
-            name:"Cervo Care App",
-            img:Project17,
-            url:"https://play.google.com/store/search?q=cervo+care&c=apps&hl=en-IN"
+            id: 17,
+            name: "Cervo Care App",
+            img: Project17,
+            url: "https://play.google.com/store/search?q=cervo+care&c=apps&hl=en-IN",
+            category: "MobilApp"
         },
         {
-            id:18,
-            name:"Vilora Shopping App",
-            img:Project18,
-            url:"#"
+            id: 18,
+            name: "Vilora Shopping App",
+            img: Project18,
+            url: "#",
+            category: "MobilApp"
         },
-        
     ]
+    console.log(data)
+    const filteredProjects = data
+        ? projects.filter((item) => item.category === data)
+        : projects;
     return (
         <>
             <div className="">
@@ -154,26 +185,28 @@ const OurWorks = () => {
                     </div>
                     <Image src={works} alt="works" className=" hidden md:block w-200 h-100" />
                 </div>
-                <div className="">
-                    <div className=" text-center">
+                <div className="py-8">
+                    <div className="grid gap-8 text-center">
                         <h1 className="text-primary text-5xl font-bold">Our Successful Projects</h1>
                         <p className="text-[#364052]">Our experience and expertise combined with deep understanding of the customer behavior has helped diverse industries across the globe.</p>
-                        <div className="">
+                        <div className="flex flex-wrap justify-center">
+                            <button className="cursor-pointer bg-primary p-2 m-1 rounded-md text-white" onClick={() => setData("")}>
+                                Show All
+                            </button>
+
                             {button.map((item) => (
-                                <button className=" cursor-pointer bg-primary p-2 m-1 rounded-md text-white hover:bg-red-700 duration-500">
-                                    {item}
+                                <button key={item.value} onClick={() => setData(item.value)} className={`cursor-pointer p-2 m-1 rounded-md text-white duration-300 ${data === item.value ? "bg-red-700" : "bg-primary"}`}>
+                                    {item.label}
                                 </button>
                             ))}
                         </div>
-                        <div className="grid grid-cols-1 m-1 gap-10  md:grid-cols-4">
-                            {
-                                projects.map(({name,id,img,url})=>(
-                                    <a href={url} target="black" key={id}>
-                                        <Image src={img} className="rounded-3xl" alt="Singatour"/>
-                                        <h1 className="text-[#364052] font-bold text-2xl p-2">{name}</h1>
-                                    </a>
-                                ))
-                            }
+                        <div className="grid grid-cols-1 m-5 gap-10 md:grid-cols-4">
+                            {filteredProjects.map(({ name, id, img, url }) => (
+                                <a href={url} target="_blank" key={id}>
+                                    <Image src={img} className="rounded-3xl" alt={name} />
+                                    <h1 className="text-[#364052] font-bold text-2xl p-2">{name}</h1>
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>
