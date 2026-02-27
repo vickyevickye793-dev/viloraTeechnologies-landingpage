@@ -87,9 +87,10 @@
 import { useEffect, useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import heroBanner from "../../../public/assets/hero-banner4.png";
 import Shape from "../../../public/assets/shapes.webp";
 import { gsap } from "gsap";
+import MarqueeSection from "@/src/component/common/MarqueeSection";
+
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -148,11 +149,11 @@ const Hero = () => {
         <Image src={Shape} alt="shape" fill className="object-contain" priority />
       </div>
 
-      <section className="min-h-[90vh]">
+      <section className="">
         <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:pl-42 pt-16 md:pt-24 pb-8">
           <h1
             ref={headlineRef}
-            className="cursor-default text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-black leading-[1.1] tracking-tight mb-5"
+            className="cursor-default text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-black leading-[1.1] tracking-tight mb-5"
           >
             Web, Mobile Apps <br className="hidden sm:block" /> Development &amp;{" "}
             <br className="hidden sm:block" />
@@ -160,7 +161,7 @@ const Hero = () => {
           </h1>
 
           <div ref={subtitleRef}>
-            <p className="text-sm sm:text-base text-[#4a5568] leading-relaxed max-w-lg">
+            <p className="text-sm sm:text-base text-[#4a5568] font-bold leading-relaxed max-w-lg text-nowrap">
               <span className="text-[#cf282e] text-lg font-bold mr-1">*</span>
               Establish your business growth with our expert technology solutions.
             </p>
@@ -181,7 +182,7 @@ const Hero = () => {
             />
           </div> */}
 
-          <div
+          {/* <div
             ref={badgeRef}
             className="hidden md:block absolute z-50 -top-20 right-20 lg:right-80 w-40 h-40 lg:w-44 lg:h-44 pointer-events-none rounded-full bg-[#e8eef6] border-white border-8"
           >
@@ -208,7 +209,12 @@ const Hero = () => {
 
               <div className="absolute inset-0 rounded-full bg-[#0d1b3e] -z-10" />
             </div>
+          </div> */}
+
+          <div className="mt-10">
+            <MarqueeSection />
           </div>
+
         </div>
       </section>
 

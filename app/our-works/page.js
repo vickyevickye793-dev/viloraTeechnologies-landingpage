@@ -3,7 +3,7 @@ import Footer from "../../src/section/home/Footer"
 import OurWorks from "../../src/section/ourWorks/OurWorks"
 export default function Page() {
     return (
-        <div className="container mx-auto bg-WhiteBackground">
+        <div className=" bg-WhiteBackground">
             <Header />
             <OurWorks/>
             <Footer />

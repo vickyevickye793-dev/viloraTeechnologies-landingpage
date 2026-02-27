@@ -67,7 +67,7 @@ export const metadata = {
 
 export default function Page() {
     return (
-        <div className="container mx-auto bg-WhiteBackground">
+        <div className="bg-WhiteBackground">
             <Header />
             <Services />
             <Footer />

@@ -3,29 +3,38 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+
+  --font-libre: "Libre Franklin", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
 }
 
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-libre);
+  /* ✅ Main Font */
+}
+
+/* Headings Font */
+.heading-font {
+  font-family: var(--font-poppins);
+}
 
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-
-
-
 @theme {
-
-  --color-primary: #cf282e;
+  --color-primary: #be2e2e;
   --color-secondary: #162456;
   --color-gray-dark: #374151;
   --color-gray-medium: #6b7280;
   --color-gray-light: #f3f4f6;
   --color-gold: #c9a84c;
-  --color-light:#e1e8f0;
+  --color-light: #e1e8f0;
   --color-black: #000000;
   --color-blue: #2563eb;
   --color-danger: #ff0000;
@@ -42,26 +51,70 @@
   --text-gold: #c9a84c;
   --text-light: #676e7a;
   --text-danger: #ff0000;
-  --text-blacker:#051229;
-  --text-blues:#0075FF;
-}
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --text-blacker: #051229;
+  --text-blues: #0075FF;
 }
 
+
+@keyframes shine {
+  100% {
+    transform: translateX(200%);
+  }
+}
 
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-/* Optional utility class */
 .spin-animation {
   animation: spin 2s linear infinite;
+}
+
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #cf282e;
+  padding: 18px 0;
+  position: relative;
+}
+
+.marquee-inner {
+  display: flex;
+  width: fit-content;
+  animation: marqueeScroll 20s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-right: 60px;
+  white-space: nowrap;
+  font-family: var(--font-poppins);
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.hex {
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+/* Smooth infinite scroll */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }

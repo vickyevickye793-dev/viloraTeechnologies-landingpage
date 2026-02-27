@@ -99,7 +99,7 @@ const navItems = [
   { label: "Home", href: "/", hasDropdown: false, active: true },
   { label: "About", href: "/about", hasDropdown: false },
   { label: "Services", href: "/services", hasDropdown: false },
-  { label: "Our Works", href: "/ourWorks", hasDropdown: true },
+  { label: "Our Works", href: "/our-works", hasDropdown: true },
   { label: "Contact", href: "/contact", hasDropdown: false },
 ];
 
