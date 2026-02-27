@@ -1,27 +1,51 @@
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../../../public/assets/services/page-Head.webp";
+import imagge from "../../../public/assets/hero-banner2.png"
 import { LocationEdit, Mail, Map, Phone } from "lucide-react";
 import ContactForm from "@/src/component/common/form/ContactForm";
 const Contact = () => {
   return (
     <>
-      <div className="relative w-full h-[480px] overflow-hidden">
-        <Image
-          src={Header}
-          fill
-          alt=""
-          className="object-cover object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-blue-950/85" />
-        <div className="slide-left relative z-10 flex h-full flex-col items-center justify-center gap-5 text-white">
-          <h1 className="text-5xl font-bold">Contact</h1>
-          <div className="px-5 py-2 rounded-full bg-gray-600/50 backdrop-blur-2xl">
-            <p className="font-semibold text-md">Home / Contact</p>
-          </div>
+      <div className="relative z-10 w-full h-180 overflow-hidden">
+        
+        <Image src={imagge} alt="" className="grayscale-70 hidden md:block"/>
+
+        <div className="absolute  top-1/3 mx-16  text-white max-w-xl">
+          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+          <p className="text-lg font-semibold leading-relaxed">
+            At Vilora Technology, we specialize in delivering innovative web and
+            mobile solutions that help businesses grow in the digital world.
+            Whether you need custom software development, UI/UX design, or
+            digital transformation services, our team is ready to turn your
+            ideas into powerful, scalable solutions. Let’s connect and build
+            something exceptional together.
+          </p>
         </div>
+
+
+
+        <div
+          className="absolute right-1/12 -top-10  z-10 flex items-center justify-center 
+                  px-4 sm:px-6 lg:px-8
+                  py-16 sm:py-20 lg:py-28
+                  min-h-[800px] sm:min-h-[650px] lg:min-h-[800px]"
+        >
+          <ContactForm />
+        </div>
+
+        <svg
+          className="absolute bottom-0 left-0 w-full h-[120px] sm:h-[150px] lg:h-[200px]"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#ffffff"
+            d="M0,224L60,197.3C120,171,240,117,360,117.3C480,117,600,171,720,186.7C840,203,960,181,1080,160C1200,139,1320,117,1380,106.7L1440,96V320H0Z"
+          />
+        </svg>
       </div>
+
+  
       <div className=" flex  items-center gap-2 justify-center mt-24">
         <div className="h-1 w-1 rounded-full bg-blue"></div>
         <span className="text-blue text-sm font-semibold uppercase">
@@ -103,29 +127,24 @@ const Contact = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-  <div className="flex flex-col lg:flex-row gap-12 items-start">
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          <div className="w-full lg:w-1/2">
+            <ContactForm />
+          </div>
 
-
-    <div className="w-full lg:w-1/2">
-      <ContactForm />
-    </div>
-
-
-    <div className="w-full lg:w-1/2  ">
-      <div className="w-full h-[350px] sm:h-[450px]  lg:h-full  overflow-hidden ">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.878239676996!2d79.8194659!3d11.940395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53610aafffffff%3A0xdb17030ffba9d036!2sVILORA%20Technologies!5e0!3m2!1sen!2sin!4v1700000000000"
-          className="h-[670px] w-[800px]"
-          style={{ border: 0 }}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-
-        />
+          <div className="w-full lg:w-1/2  ">
+            <div className="w-full h-[350px] sm:h-[450px]  lg:h-full  overflow-hidden ">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.878239676996!2d79.8194659!3d11.940395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53610aafffffff%3A0xdb17030ffba9d036!2sVILORA%20Technologies!5e0!3m2!1sen!2sin!4v1700000000000"
+                className="h-[670px] w-[800px]"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-</div>
 
       <div className="relative bg-blue-600 overflow-hidden px-6 py-12 md:px-10 md:py-16 flex flex-col md:flex-row  items-center justify-between gap-8">
         <div className="absolute -top-32 -left-32  w-72 h-72 md:w-96 md:h-96  bg-blue-500 rounded-full opacity-40"></div>
