@@ -4,55 +4,24 @@ import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import project from "../../../public/assets/hero-banner2.png"
-const servicesData = [
-    {
-        id: 1,
-        title: "Business process optimization",
-        image: project,
-    },
-    {
-        id: 2,
-        title: "Strategic planning & execution",
-        image: project,
-    },
-    {
-        id: 3,
-        title: "Leadership executive coaching",
-        image: project,
-    },
-    {
-        id: 4,
-        title: "Digital Transformation",
-        image: project,
-    },
-    {
-        id: 5,
-        title: "Financial Consulting",
-        image: project,
-    },
-    {
-        id: 6,
-        title: "Business process optimization",
-        image: project,
-    },
-    {
-        id: 7,
-        title: "Strategic planning & execution",
-        image: project,
-    },
-];
+import { OurWorks } from "../../component/localDb/OurWorks";
+
+const data = OurWorks;
 
 export default function ServicesSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [startX, setStartX] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState(0);
+    const data = OurWorks
+
+    console.log(data)
     useEffect(() => {
         if (isDragging) return;
 
         const timer = setInterval(() => {
             setCurrentIndex((prev) =>
-                prev + 3 >= servicesData.length ? 0 : prev + 1
+                prev + 3 >= data.length ? 0 : prev + 1
             );
         }, 4000);
 
@@ -75,11 +44,11 @@ export default function ServicesSlider() {
 
         if (diff > 80) {
             setCurrentIndex((prev) =>
-                prev === 0 ? servicesData.length - 3 : prev - 1
+                prev === 0 ? data.length - 3 : prev - 1
             );
         } else if (diff < -80) {
             setCurrentIndex((prev) =>
-                prev + 3 >= servicesData.length ? 0 : prev + 1
+                prev + 3 >= data.length ? 0 : prev + 1
             );
         }
 
@@ -112,32 +81,38 @@ export default function ServicesSlider() {
                     onTouchMove={(e) => handleDragMove(e.touches[0].clientX)}
                     onTouchEnd={(e) => handleDragEnd(e.changedTouches[0].clientX)}
                 >
-                    {servicesData.map((service) => (
+                    {data.map((project) => (
                         <div
-                            key={service.id}
+                            key={project.id}
                             className="min-w-full md:min-w-[calc(33.333%-1rem)]
            select-none relative group h-[480px] rounded-sm overflow-hidden cursor-pointer"
                         >
                             <Image
-                                src={service.image}
-                                alt={service.title}
+                                src={project.img}
+                                alt={project.name}
                                 fill
                                 draggable={false}
                                 className="absolute inset-0 w-full h-full object-cover 
-             grayscale-80 transition-all duration-500 
+             grayscale transition-all duration-500 
              group-hover:grayscale-0 group-hover:scale-105 
              pointer-events-none"
                             />
 
 
-                            <div className="relative z-10 h-full p-10 flex flex-col justify-between">
-                                <h3 className="text-white text-2xl font-bold leading-tight max-w-[200px]">
-                                    {service.title}
+                            <div className="relative z-10 p-10 flex justify-center ">
+                                <h3 className="text-white text-2xl lg:text-nowrap text-center font-bold leading-tight max-w-[200px]">
+                                    {project.name}
                                 </h3>
 
-                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+                                {/* <div
+                                    // onClick={() => {
+                                    //     if (project.url && project.url !== "#") {
+                                    //         window.open(project.url, "_blank");
+                                    //     }
+                                    // }}
+                                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white">
                                     <ArrowRight size={24} className="text-[#0a1d37] group-hover:text-white transition-colors" />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     ))}
@@ -145,7 +120,7 @@ export default function ServicesSlider() {
             </div>
 
             <div className="flex gap-2 mt-10">
-                {Array.from({ length: servicesData.length - 2 }).map((_, idx) => (
+                {Array.from({ length: data.length - 2 }).map((_, idx) => (
                     <button
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}

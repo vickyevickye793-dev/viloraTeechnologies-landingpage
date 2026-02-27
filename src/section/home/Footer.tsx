@@ -244,35 +244,9 @@ const Footer = () => {
           <Image src={logo} width={150} height={40} alt="Vilora Logo" className="bg-white rounded-xl" />
           <p className="text-md text-white/60 leading-relaxed">{description}</p>
 
-          <div className="mt-2 flex flex-col gap-2.5">
-            {contactInfo.map(({ icon: Icon, label, href }, i) => (
-              <a
-                key={i}
-                href={href}
-                className="flex items-center gap-2.5 text-md text-white/50 hover:text-[#cf282e] transition-colors duration-200 group"
-              >
-                <span className="w-7 h-7 rounded-full bg-white/5 group-hover:bg-[#cf282e]/20 flex items-center justify-center transition-colors duration-200 shrink-0">
-                  <Icon className="w-3.5 h-3.5" />
-                </span>
-                {label}
-              </a>
-            ))}
-          </div>
 
-          <p className="font-bold text-white mt-4">Follow Us</p>
-          <div className="flex gap-3">
-            {follows.map(({ Icon, href }, i) => (
-              <a
-                key={i}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-[#cf282e] hover:text-white hover:border-[#cf282e] transition-all duration-200"
-              >
-                <Icon size={16} />
-              </a>
-            ))}
-          </div>
+
+
         </div>
 
         <div ref={col2Ref}>
@@ -310,29 +284,43 @@ const Footer = () => {
           </ul>
         </div>
 
+
+
+
         <div ref={col4Ref} className="flex flex-col gap-4">
           <p className="font-bold text-lg text-white mb-2 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-8 after:h-0.5 after:bg-[#cf282e]">
-            Newsletter
+            Follow Us
           </p>
-          <p className="text-md text-white/50 leading-relaxed mt-2">
-            Subscribe to get the latest news, updates, and expert insights delivered to your inbox.
-          </p>
-
-          <div className="relative mt-2">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full py-3.5 pl-4 pr-14 bg-white/5 border border-white/10 rounded-full text-white placeholder-white/30 text-md outline-none focus:border-[#cf282e]/60 transition-colors duration-200"
-            />
-            <button className="absolute right-1 top-1 bottom-1 aspect-square bg-[#cf282e] hover:bg-white hover:text-[#cf282e] text-white rounded-full flex items-center justify-center transition-colors duration-200 group">
-              <ArrowRight className="w-4 h-4" />
-            </button>
+          <div className="mt-2 flex flex-col gap-2.5">
+            {contactInfo.map(({ icon: Icon, label, href }, i) => (
+              <a
+                key={i}
+                href={href}
+                className="flex items-center gap-2.5 text-md text-white/50 hover:text-[#cf282e] transition-colors duration-200 group"
+              >
+                <span className="w-7 h-7 rounded-full bg-white/5 group-hover:bg-[#cf282e]/20 flex items-center justify-center transition-colors duration-200 shrink-0">
+                  <Icon className="w-3.5 h-3.5" />
+                </span>
+                {label}
+              </a>
+            ))}
+          </div>
+          <div className="flex gap-3">
+            {follows.map(({ Icon, href }, i) => (
+              <a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-[#cf282e] hover:text-white hover:border-[#cf282e] transition-all duration-200"
+              >
+                <Icon size={16} />
+              </a>
+            ))}
           </div>
 
-          <div className="mt-4 flex items-center gap-2 text-xs text-white/30">
-            <Shield className="w-4 h-4 text-[#cf282e]/60" />
-            No spam. Unsubscribe at any time.
-          </div>
+
+
         </div>
       </div>
 
