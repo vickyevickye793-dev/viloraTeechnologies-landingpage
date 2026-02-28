@@ -199,7 +199,7 @@ export default function NotFound() {
                         </span>
                     </div>
 
-                    <div className="flex items-center justify-center perspective-[800px]">
+                    <div className="flex items-center justify-center" style={{ perspective: "800px" }}>
                         {["4", "0", "4"].map((digit, i) => (
                             <span
                                 key={i}

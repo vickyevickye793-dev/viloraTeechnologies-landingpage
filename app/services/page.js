@@ -1,6 +1,6 @@
-import Header from "../../src/section/home/Header"
-import Footer from "../../src/section/home/Footer"
-import Services from "../../src/section/home/Services"
+import Header from "../../src/section/header/Header"
+import Footer from "../../src/section/footer/Footer"
+import ServicesSection from "../../src/section/ServicesSection/ServicesSection"
 export const metadata = {
     metadataBase: new URL("https://www.viloratechnologies.com"),
 
@@ -69,7 +69,7 @@ export default function Page() {
     return (
         <div className="bg-WhiteBackground">
             <Header />
-            <Services />
+            <ServicesSection />
             <Footer />
         </div>
     );
