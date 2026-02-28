@@ -99,8 +99,9 @@ const navItems = [
   { label: "Home", href: "/", hasDropdown: false, active: true },
   { label: "About", href: "/about", hasDropdown: false },
   { label: "Services", href: "/services", hasDropdown: false },
-  { label: "Our Works", href: "/our-works", hasDropdown: true },
+  { label: "Our Projects", href: "/our-projects", hasDropdown: false },
   { label: "Contact", href: "/contact", hasDropdown: false },
+  { label: "Internship", href: "/internship-in-pondicherry", hasDropdown: false },
 ];
 
 const Header = () => {
