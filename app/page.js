@@ -1,8 +1,9 @@
-import ExpertiseSection from "@/src/section/home/ExpertiseSection";
-import Footer from "@/src/section/home/Footer";
-import Header from "@/src/section/home/Header";
-import Hero from "@/src/section/home/Hero";
-import ServicesSlider from "@/src/section/home/ServicesSlider";
+import Footer from "@/src/section/footer/Footer";
+import Header from "@/src/section/header/Header";
+import Hero from "@/src/section/hero/Hero";
+import ProcessMethodologies from "@/src/section/processMethodologies/ProcessMethodologies";
+import ServicesSection from "@/src/section/ServicesSection/ServicesSection";
+import OurProjects from "@/src/section/ourProjects/OurProjects";
 
 export default function Home() {
   return (
@@ -10,8 +11,9 @@ export default function Home() {
       <main>
         <Header />
         <Hero />
-        <ServicesSlider />
-        <ExpertiseSection />
+        <OurProjects />
+        <ProcessMethodologies />
+        <ServicesSection />
         <Footer />
       </main>
     </div>

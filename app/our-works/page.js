@@ -1,5 +1,5 @@
-import Header from "../../src/section/home/Header"
-import Footer from "../../src/section/home/Footer"
+import Footer from "../../src/section/footer/Footer";
+import Header from "../../src/section/header/Header";
 import OurWorks from "../../src/section/ourWorks/OurWorks"
 export default function Page() {
     return (
