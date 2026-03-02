@@ -12,7 +12,7 @@ const Services = () => {
         <section className="bg-white py-20 px-6">
             <div className="text-center max-w-4xl mx-auto mb-14">
                 <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
-                    Our Awesome Services
+                    Our Services
                 </h2>
                 {!isHomePage && (
                     <p className="text-gray-500 font-bold leading-relaxed">

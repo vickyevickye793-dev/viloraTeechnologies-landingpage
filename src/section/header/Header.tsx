@@ -79,7 +79,7 @@ import { gsap } from "gsap";
 
 
 const navItems = [
-  { label: "Home", href: "/", hasDropdown: false, active: true },
+  { label: "Home", href: "/", hasDropdown: false},
   { label: "About", href: "/about", hasDropdown: false },
   { label: "Services", href: "/services", hasDropdown: false },
   { label: "Our Projects", href: "/our-projects", hasDropdown: false },
@@ -152,11 +152,7 @@ const Header = () => {
                 <li key={i}>
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1 px-4 py-2 text-[18px] font-extrabold rounded-full transition-colors duration-200
-                      ${item.active
-                        ? "text-[#cf282e]"
-                        : "text-[#0d1b3e] hover:text-[#cf282e]"
-                      }`}
+                    className="flex items-center gap-1 px-4 py-2 text-[18px] font-extrabold rounded-full transition-colors duration-200 text-[#0d1b3e] hover:text-[#cf282e]"
                   >
                     {item.label}
                     {item.hasDropdown && (
@@ -227,11 +223,7 @@ const Header = () => {
                 <Link
                   href={item.href}
                   onClick={closeMenu}
-                  className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-semibold transition-colors duration-200
-                    ${item.active
-                      ? "bg-[#cf282e]/10 text-[#cf282e]"
-                      : "text-[#0d1b3e] hover:bg-gray-100 hover:text-[#cf282e]"
-                    }`}
+                  className="flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-semibold transition-colors duration-200 text-[#0d1b3e] hover:bg-gray-100 hover:text-[#cf282e]"
                 >
                   {item.label}
                   {item.hasDropdown ? (
