@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Libre_Franklin, Poppins } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/src/component/common/CustomCursor";
+import { Toaster } from "sonner"; 
 
 const libreFranklin = Libre_Franklin({
   subsets: ["latin"],
@@ -114,6 +115,7 @@ export default function RootLayout({
         <CustomCursor />
         <div className="container mx-auto">
           {children}
+          <Toaster position="top-right" richColors/>
         </div>
         <script
           type="application/ld+json"
