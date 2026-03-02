@@ -2,28 +2,28 @@
 
 import React, { useState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
-import { addInternshipApplication } from "../../../services/internshipApi";
+import { useInternshipStore } from "../../../store/internshipStore";
+import SuccessModal from "../modal/SuccessModal";
 
 export default function InternshipInnerForm() {
-    const [loading, setLoading] = useState(false);
-    const [showSuccess, setShowSuccess] = useState(false);
+    const { loading, submitApplication, success } = useInternshipStore();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
 
         const formData = new FormData(e.target);
         const now = new Date();
+        const userMessage = formData.get("message")?.trim();
 
         const payload = {
             name: formData.get("name"),
             phoneNumber: formData.get("phone"),
-            collage: formData.get("collage"),
+            collage: formData.get("collage")?.trim(),
             internshipRole: formData.get("role"),
             duration: Number(formData.get("duration")),
             member: Number(formData.get("member")),
-            message: formData.get("message") || null,
             branch: formData.get("branch"),
+            message: userMessage || null,
             date: now.toLocaleDateString("en-GB"),
             time: now.toLocaleString("en-US", {
                 hour: "numeric",
@@ -32,15 +32,10 @@ export default function InternshipInnerForm() {
             }),
         };
 
-        const res = await addInternshipApplication(payload);
-        console.log(res)
-        setLoading(false);
+        await submitApplication(payload);
 
-        if (res.success) {
+        if (useInternshipStore.getState().success) {
             e.target.reset();
-            setShowSuccess(true);
-        } else {
-            alert("Failed to submit");
         }
     };
 
@@ -61,18 +56,7 @@ export default function InternshipInnerForm() {
                     </p>
                 </div>
 
-                {/* Success Message */}
-                {showSuccess && (
-                    <div className="mb-4 p-4 rounded-xl bg-green-50 border border-green-200 text-center">
-                        <CheckCircle2 className="mx-auto mb-2 text-green-600" size={36} />
-                        <p className="font-semibold text-green-700">
-                            Application submitted successfully!
-                        </p>
-                        <p className="text-sm text-gray-600">
-                            Our HR team will contact you soon.
-                        </p>
-                    </div>
-                )}
+
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-3">
@@ -185,6 +169,7 @@ export default function InternshipInnerForm() {
                     </button>
                 </form>
             </div>
+            <SuccessModal />
         </div>
     );
 }
