@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
-import { X, Send, CheckCircle2 } from "lucide-react";
-import { addInternshipApplication } from "../../../services/internshipApi";
+import React from "react";
+import { X, Send } from "lucide-react";
+import { useInternshipStore } from "@/src/store/internshipStore";
+import SuccessModal from "../modal/SuccessModal";
 
-export default function InternshipForm({ closeForm }) {
-    const [loading, setLoading] = useState(false);
-    const [showSuccess, setShowSuccess] = useState(false);
+export default function InternshipForm() {
+    const { loading, closeForm, submitApplication, resetState } =
+        useInternshipStore();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
 
         const formData = new FormData(e.target);
         const now = new Date();
@@ -23,8 +23,8 @@ export default function InternshipForm({ closeForm }) {
             internshipRole: formData.get("role"),
             duration: Number(formData.get("duration")),
             member: Number(formData.get("member")),
-            message: userMessage || null,
             branch: formData.get("branch"),
+            message: userMessage || null,
             date: now.toLocaleDateString("en-GB"),
             time: now.toLocaleString("en-US", {
                 hour: "numeric",
@@ -33,32 +33,23 @@ export default function InternshipForm({ closeForm }) {
             }),
         };
 
+        await submitApplication(payload);
 
-
-        // console.log("Payload:", payload);
-        const res = await addInternshipApplication(payload);
-        console.log(res)
-        console.log(payload)
-
-        setLoading(false);
-
-        if (res.success) {
+        if (useInternshipStore.getState().success) {
             e.target.reset();
-            setShowSuccess(true);
-        }
-        else {
-            alert("Failed to submit");
         }
     };
-
     return (
         <>
-            <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] p-4">
+            <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-[9999] p-4">
 
                 <div className="relative w-full max-w-md p-4 duration-300 border border-gray-100 shadow-2xl bg-white/95 backdrop-blur-md rounded-3xl animate-in fade-in">
 
                     <button
-                        onClick={closeForm}
+                        onClick={() => {
+                            resetState();
+                            closeForm();
+                        }}
                         className="absolute text-gray-400 transition-all duration-200 top-5 right-5 hover:text-gray-700 hover:rotate-90"
                     >
                         <X size={24} />
@@ -202,41 +193,8 @@ export default function InternshipForm({ closeForm }) {
                     </form>
                 </div>
             </div>
+            <SuccessModal />
 
-            {showSuccess && (
-                <div className="fixed inset-0 z-[10000] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-                    <div className="bg-white rounded-3xl shadow-2xl w-[100%] max-w-md p-8 sm:p-10 border-2 border-green-200 flex flex-col items-center text-center relative overflow-hidden animate-[slideUp_0.3s_ease-out]">
-
-                        <div className="absolute w-40 h-40 bg-green-100 rounded-full opacity-50 -top-20 -right-20"></div>
-                        <div className="absolute w-40 h-40 bg-blue-100 rounded-full opacity-50 -bottom-20 -left-20"></div>
-
-                        <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mb-6 shadow-lg relative z-10 animate-[bounce_1s_ease-in-out]">
-                            <CheckCircle2 className="text-white" size={48} strokeWidth={3} />
-                        </div>
-
-                        <h2 className="relative z-10 mb-3 text-3xl font-bold text-green-600 sm:text-4xl">
-                            Application Submitted Successfully!
-                        </h2>
-
-                        <p className="relative z-10 mb-2 text-lg font-semibold text-gray-700">
-                            Welcome to Vilora Tech Education
-                        </p>
-
-                        <p className="relative z-10 mb-6 text-sm text-gray-600">
-                            Our HR team will contact you soon.
-                        </p>
-
-
-                        <button
-                            onClick={closeForm}
-                            className="relative z-10 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-green-500 to-green-600 hover:shadow-lg hover:scale-105"
-                        >
-                            Close
-                        </button>
-
-                    </div>
-                </div>
-            )}
         </>
     );
 }

@@ -76,24 +76,7 @@ import { LayoutGrid, ChevronDown, ArrowRight, X } from "lucide-react";
 import logo from "../../../public/assets/logo.webp";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import Project1 from "../../../public/assets/Projects/project1.webp"
-import Project2 from "../../../public/assets/Projects/project2.webp"
-import Project3 from "../../../public/assets/Projects/project3.webp"
-import Project4 from "../../../public/assets/Projects/project4.webp"
-import Project5 from "../../../public/assets/Projects/project5.webp"
-import Project6 from "../../../public/assets/Projects/project6.webp"
-import Project7 from "../../../public/assets/Projects/project7.webp"
-import Project8 from "../../../public/assets/Projects/project8.webp"
-import Project9 from "../../../public/assets/Projects/project9.webp"
-import Project10 from "../../../public/assets/Projects/project10.webp"
-import Project11 from "../../../public/assets/Projects/project11.webp"
-import Project12 from "../../../public/assets/Projects/project12.webp"
-import Project13 from "../../../public/assets/Projects/project13.webp"
-import Project14 from "../../../public/assets/Projects/project14.webp"
-import Project15 from "../../../public/assets/Projects/project15.webp"
-import Project16 from "../../../public/assets/Projects/project16.webp"
-import Project17 from "../../../public/assets/Projects/project17.webp"
-import Project18 from "../../../public/assets/Projects/project18.webp"
+
 
 const navItems = [
   { label: "Home", href: "/", hasDropdown: false, active: true },
@@ -106,8 +89,6 @@ const navItems = [
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [works, setWorks] = useState(false);
-
   const overlayRef = useRef<HTMLDivElement>(null);
   const menuPanelRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLLIElement[]>([]);
@@ -156,117 +137,7 @@ const Header = () => {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
-  const projects = [
-    {
-      id: 1,
-      name: "Singatour",
-      img: Project1,
-      url: "https://singatour.com/"
-    },
-    {
-      id: 2,
-      name: "BEN Forum",
-      img: Project2,
-      url: "http://benforum.com/index.html"
-    },
-    {
-      id: 3,
-      name: "Mirthi Studios",
-      img: Project3,
-      url: "http://mirthistudios.com/"
-    },
-    {
-      id: 4,
-      name: "Shiny Pearls Dental Care",
-      img: Project4,
-      url: "http://shinypearlsdentalcare.com/"
-    },
-    {
-      id: 5,
-      name: "Amman Organic ",
-      img: Project5,
-      url: "http://103.186.185.245:8087/index.html"
-    },
-    {
-      id: 6,
-      name: "Plan Mydream Event",
-      img: Project6,
-      url: "#"
-    },
-    {
-      id: 7,
-      name: "Vilora Shopping",
-      img: Project7,
-      url: "#"
-    },
-    {
-      id: 8,
-      name: "Infinite Studio",
-      img: Project8,
-      url: "#"
-    },
-    {
-      id: 9,
-      name: "Niva Foods",
-      img: Project9,
-      url: "https://www.nivafoods.com.sg/"
-    },
-    {
-      id: 10,
-      name: "Happy Moment",
-      img: Project10,
-      url: "#"
-    },
-    {
-      id: 11,
-      name: "Pondy Bajar",
-      img: Project11,
-      url: "#"
-    },
-    {
-      id: 12,
-      name: "Cervo Care",
-      img: Project12,
-      url: "https://cervocare.com/"
-    },
-    {
-      id: 13,
-      name: "Aeroseptix",
-      img: Project13,
-      url: "http://aeroseptix.in/"
-    },
-    {
-      id: 14,
-      name: "Bharrathividyashram",
-      img: Project14,
-      url: "#"
-    },
-    {
-      id: 15,
-      name: "Nadi Astro Bhava",
-      img: Project15,
-      url: "https://nadiastrobhava.com/"
-    },
-    {
-      id: 16,
-      name: "Job Portal",
-      img: Project16,
-      url: "#"
-    },
-    {
-      id: 17,
-      name: "Cervo Care App",
-      img: Project17,
-      url: "https://play.google.com/store/search?q=cervo+care&c=apps&hl=en-IN"
-    },
-    {
-      id: 18,
-      name: "Vilora Shopping App",
-      img: Project18,
-      url: "#"
-    },
 
-  ]
   return (
     <>
       <header className="px-6 py-4 z-50 relative">
@@ -344,7 +215,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Nav links */}
         <nav className="flex-1 px-6 pt-8 overflow-y-auto">
           <ul className="flex flex-col gap-1">
             {navItems.map((item, i) => (
@@ -395,21 +265,7 @@ const Header = () => {
           </p>
         </div>
       </div>
-      {works && (
-        <div className="absolute grid grid-cols-3 gap-5 bg-black/30 z-50 p-10 w-full h-fit backdrop-blur-3xl">
-          {
-            projects.map(({ name, img, url, id }) => (
-              <Link href={url} key={id} className="h-fit w-fit border relative border-gray-400">
-                <div className=" absolute opacity-0 hover:opacity-100 duration-500 bg-black/40 w-full h-full inset-0 flex items-center justify-center">
-                  <div className="bg-white text-black p-1 rounded-4xl flex items-center"><span className="bg-[#0075FF] p-3 rounded-full"><ArrowRight /></span><span className="mx-4">View Website</span></div>
-                </div>
-                <Image width={400} height={400} src={img} alt="Projext" />
-                <p className="text-center text-black font-bold p-3">{name}</p>
-              </Link>
-            ))
-          }
-        </div>
-      )}
+  
     </>
   );
 };

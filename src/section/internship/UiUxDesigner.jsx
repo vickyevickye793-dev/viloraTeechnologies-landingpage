@@ -1,156 +1,156 @@
 "use client";
+
 import InternshipInnerForm from "../../component/common/form/InternshipInnerForm";
 import InternshipForm from "../../component/common/form/InternshipForm";
-import { ArrowRight, BadgeCheck, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
+import { ArrowRight, BadgeCheck, CheckCircle2, Code2 } from "lucide-react";
+import { useInternshipStore } from "../../store/internshipStore";
 
 export default function UiUxDesigner() {
-  const [showForm, setShowForm] = useState(false);
+  const { isOpen, openForm } = useInternshipStore();
+
   return (
-    <div className="px-4 lg:pb-16 mx-auto">
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-500">
-        <ol className="flex flex-wrap items-center gap-2">
-          <li>
-            <Link href="/" className="hover:text-primary">
-              Home
-            </Link>
-          </li>
+    <div className="relative px-4 pb-20 mx-auto max-w-7xl overflow-x-hidden">
 
-          <li className="select-none">/</li>
+      {/* HERO SECTION */}
+      <section className="relative py-20 text-center">
+        <div
+          className="absolute inset-0 pointer-events-none opacity-30"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #fca5a518 1px, transparent 1px), linear-gradient(to bottom, #fca5a518 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-62.5 bg-red-50 rounded-full blur-3xl opacity-50 pointer-events-none" />
 
-          <li>
-            <Link
-              href="https://viloratecheducation.com/internship-in-pondicherry"
-              className="hover:text-primary"
-            >
-              Internship
-            </Link>
-          </li>
+        <div className="relative z-10">
 
-          <li className="select-none">/</li>
+          {/* BADGE */}
+          <div className="inline-flex items-center gap-2 bg-white border border-red-100 text-red-800 text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-8 shadow-sm">
+            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+            2026 Batch — Limited Seats
+          </div>
 
-          <li className="font-semibold text-gray-800">
-            UI / UX Designer Internship In Pondicherry
-          </li>
-        </ol>
-      </nav>
+          {/* TITLE */}
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 mb-4">
+            UI / UX Designer
+            <span className="block text-primary mt-1">
+              Internship in Pondicherry
+            </span>
+          </h1>
 
-      {/* HERO */}
-      <h1 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold font-outfit-extrabold text-primary">
-        UI / UX Designer Internship in Pondicherry
-      </h1>
+          {/* DESCRIPTION */}
+          <p className="max-w-2xl mx-auto text-lg text-gray-500 leading-relaxed mb-10">
+            Master user research, wireframing, prototyping and modern UI design
+            tools like Figma through hands-on real-world design projects.
+          </p>
 
-      <p className="mb-10 text-lg leading-relaxed text-gray-600 text-justify">
-        Join the <strong>UI / UX Designer Internship in Pondicherry</strong> at{" "}
-        <span className="font-extrabold text-Secondary">Vilora</span> <span className="text-sky-400 font-extrabold">Tech</span> <span className="text-primary font-extrabold">Education</span>{" "}
-        and learn how to design intuitive, user-friendly, and visually appealing
-        digital products. This internship is designed for students, freshers,
-        and creative learners who want to build a strong foundation in user
-        interface and user experience design through practical learning.
-      </p>
+          {/* SAME BUTTON POSITION */}
+          <button
+            className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-white font-bold rounded-full shadow-xl shadow-primary/20 hover:opacity-90 transition-opacity duration-200"
+            onClick={openForm}
+          >
+            <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <BadgeCheck size={16} />
+            </span>
+            Apply for Internship
+            <ArrowRight size={18} />
+          </button>
+        </div>
+      </section>
 
-      {/* ABOUT */}
-      <h2 className="mb-4 text-2xl font-bold">
-        About the UI / UX Designer Internship
-      </h2>
+      {/* ABOUT SECTION */}
+      <section className="mb-24">
+        <div className="flex items-start gap-6 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
+          <div className="w-14 h-14 shrink-0 bg-gradient-to-br from-primary to-red-400 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
+            <Code2 size={24} className="text-white" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-black text-gray-900 mb-1">
+              About This Internship
+            </h2>
+            <div className="w-10 h-1 bg-gradient-to-r from-primary to-red-400 rounded-full mb-4" />
+            <p className="text-gray-600 leading-relaxed">
+              Learn complete UI/UX workflow including user research,
+              wireframing, prototyping, usability testing and responsive design.
+              Work on real-world website and mobile app interfaces.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <p className="mb-6 text-gray-600 leading-relaxed text-justify">
-        UI / UX design focuses on how users interact with digital products such
-        as websites and mobile applications. In this internship at{" "}
-        <span className="font-extrabold text-Secondary">Vilora</span>{" "}
-        <span className="text-sky-400 font-extrabold">Tech</span>{" "}
-        <span className="text-primary font-extrabold">Education</span>, you will learn how
-        to understand user needs, create intuitive layouts, and design interfaces
-        that are both functional and visually appealing. The program follows a
-        structured design process used in real-world product teams.
+      {/* SKILLS + OUTCOMES */}
+      <section className="mb-20 grid md:grid-cols-2 gap-6">
 
-      </p>
+        {/* SKILLS */}
+        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-7">
+          <h3 className="text-xl font-extrabold mb-5">
+            Skills You Will Learn
+          </h3>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div>
-
-          {/* SKILLS */}
-          <h2 className="mb-4 text-2xl font-bold">
-            <span className="bg-yellow-400 px-2">Skills</span> You Will Learn During the Internship
-          </h2>
-
-          <div className="flex flex-wrap gap-3 mb-12">
+          <div className="flex flex-wrap gap-2">
             {[
-              "User Research & Requirement Analysis",
-              "Design Thinking Principles",
-              "Wireframing & Low-Fidelity Design",
+              "User Research",
+              "Design Thinking",
+              "Wireframing",
               "High-Fidelity UI Design",
-              "Prototyping & User Flows",
-              "Figma for UI/UX Design",
-              "Usability Testing & Feedback Analysis",
-              "Design Systems & UI Consistency",
-              "Responsive Design Concepts",
+              "Figma",
+              "Prototyping",
+              "Design Systems",
+              "Responsive Design",
             ].map((skill, i) => (
               <span
                 key={i}
-                className="px-4 py-2 text-sm font-medium bg-blue-100 rounded-full"
+                className="px-3 py-1.5 text-xs font-semibold bg-red-50 text-red-700 rounded-full border border-red-100"
               >
                 {skill}
               </span>
             ))}
           </div>
+        </div>
 
-          {/* OUTCOMES */}
-          <h2 className="mb-4 text-2xl font-bold">
-            What You Will Achieve After This Internship
-          </h2>
+        {/* OUTCOMES */}
+        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-7">
+          <h3 className="text-xl font-extrabold mb-5">
+            What You Will Achieve
+          </h3>
 
           <ul className="space-y-4">
             {[
-              "Strong understanding of UI and UX design principles",
-              "Hands-on experience with real design projects",
-              "Ability to create user-centered interface designs",
-              "Professional UI/UX design portfolio",
-              "Confidence to apply for junior UI / UX designer roles",
-            ].map((outcome, i) => (
+              "Strong UI & UX foundation",
+              "Hands-on real project experience",
+              "Professional portfolio",
+              "User-centered design thinking",
+              "Confidence for junior UI/UX roles",
+            ].map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 mt-1 text-green-500" />
-                <span>{outcome}</span>
+                <span className="text-gray-600">{item}</span>
               </li>
             ))}
           </ul>
         </div>
+      </section>
 
-        <div className="hidden md:block lg:flex justify-center items-center lg:ml-10">
-          <InternshipInnerForm />
-        </div>
-      </div>
-
-      {/* PROJECTS */}
-      <h2 className="mb-4 text-2xl font-bold">
-        Practical Design Projects
-      </h2>
-
-      <p className="mb-10 text-gray-600 leading-relaxed text-justify">
-        During the internship, you will work on practical design projects such
-        as website UI designs, mobile app interfaces, dashboards, and landing
-        pages. These projects help you build a strong design portfolio that
-        demonstrates your creativity, design thinking, and problem-solving
-        skills.
-      </p>
-
-
-      <div className="mt-16 text-center">
+      <section className="text-center">
         <button
-          onClick={() => setShowForm(true)}
-          className="inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white transition-all duration-300 shadow-xl bg-primary rounded-xl group"
+          onClick={openForm}
+          className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-white font-bold rounded-full shadow-xl shadow-primary/20 hover:opacity-90 transition-opacity duration-200"
         >
-          <BadgeCheck className="w-6 h-6" />
-          Start Your Application
-          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+            <BadgeCheck size={16} />
+          </span>
+          Apply for Internship
+          <ArrowRight size={18} />
         </button>
+
         <p className="mt-4 text-sm text-gray-500">
-          Limited seats available • Apply before slots fill up
+          Limited seats available • Apply early
         </p>
-      </div>
-      {showForm && <InternshipForm closeForm={() => setShowForm(false)} />}
+      </section>
+
+      {isOpen && <InternshipForm />}
     </div>
   );
 }
