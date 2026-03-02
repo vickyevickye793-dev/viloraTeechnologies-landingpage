@@ -1,5 +1,5 @@
 "use client";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, Icon, PlayCircle, Star } from "lucide-react";
 import core from "../../../public/assets/about/core.png";
 import PersonalApproach from "../../../public/assets/about/perapp.png";
@@ -90,7 +90,7 @@ const About = () => {
     <>
       <div className="">
         <section className="relative w-full ">
-          <div className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-primary via-secondary/15 to-transparent rounded-full fade-up delay-1"></div>
+          {/* <div className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-primary via-secondary/15 to-transparent rounded-full fade-up delay-1"></div> */}
 
           <div className="md:flex  md:justify-around md:items-center w-full   py-12 p-6">
             <div className="flex flex-col justify-center gap-4 md:gap-5 lg:gap-6">
@@ -157,7 +157,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="mt-4 ml-8 h-px bg-gradient-to-r from-primary/40 via-secondary/10 to-transparent fade-up delay-5"></div>
+          {/* <div className="mt-4 ml-8 h-px bg-gradient-to-r from-primary/40 via-secondary/10 to-transparent fade-up delay-5"></div> */}
         </section>
 
         <ProcessMethodologies />
@@ -171,8 +171,8 @@ const About = () => {
                 key={i}
                 className="card relative bg-white rounded-2xl p-6 flex flex-col gap-5 border border-[#e8e4dc] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
               >
-                <div className="icon-wrap w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
-                  <Image src={Icon} alt="" className="p-2 " />
+                <div className="icon-wrap w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
+                  <Image src={Icon} alt="" className="p-2 invert brightness-0" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-[#0b1628] font-bold text-lg leading-snug">
@@ -200,8 +200,6 @@ const About = () => {
                 {evolution.details}
               </p>
 
-              <div className="w-16 h-[2px] bg-gradient-to-r from-[#0075FF] to-transparent rounded-full" />
-
               <div className="grid grid-cols-3 gap-6">
                 {calculation.map((item, i) => (
                   <div
@@ -226,7 +224,7 @@ const About = () => {
                   alt=""
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-primary/40 grayscale-25 "></div>
+                {/* <div className="absolute inset-0 bg-primary/40 grayscale-25 "></div> */}
               </div>
 
               <div className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-sm border border-white/10 text-white/70 text-xs px-4 py-2 rounded-full font-medium tracking-wide">

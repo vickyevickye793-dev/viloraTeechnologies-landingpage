@@ -68,14 +68,13 @@ const Services = () => {
                                     src={backgroundImage}
                                     className="object-cover"
                                 />
-                                <div className="bg-secondary/40 absolute inset-0 transition-opacity duration-700"></div>
+                                <div className="bg-secondary/40 absolute inset-0 transition-opacity duration-700"></div>/
 
                                 <span
                                     className="absolute inset-0 
                                     bg-[linear-gradient(110deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_40%,rgba(255,255,255,0.45)_50%,rgba(255,255,255,0)_60%,rgba(255,255,255,0)_100%)]
                                     translate-x-[-100%]
                                     group-hover:animate-[shine_0.6s_ease-out]
-
                                     pointer-events-none"
                                 />
                             </div>
