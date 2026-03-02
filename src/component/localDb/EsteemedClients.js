@@ -1,3 +1,13 @@
+import client from "../../../public/assets/clients/client.jpg"
+import Anbu from "../../../public/assets/clients/Anbu.jpg"
+import Jipmer from "../../../public/assets/clients/jipmer.jpg"
+import Nissan from "../../../public/assets/clients/nissam.jpg"
+import Pondy from "../../../public/assets/clients/pondy.jpg"
+import Search from "../../../public/assets/clients/search.jpg"
+
+
+
+
 export const EsteemedClientsData = {
   title: "Our Esteemed Clients",
   description:
@@ -6,27 +16,27 @@ export const EsteemedClientsData = {
     {
       id: 1,
       name: "JIPMER",
-      logo: "/assets/clients/jipmer.png"
+      logo:Jipmer,
     },
     {
       id: 2,
-      name: "Tamil Nadu Khadi Board",
-      logo: "/assets/clients/tnkvib.png"
+      name: "ANBU TRADRES",
+      logo: Anbu
     },
     {
       id: 3,
-      name: "LiveWire",
-      logo: "/assets/clients/livewire.png"
+      name: "PONDY BAZAR",
+      logo: Pondy
     },
     {
       id: 4,
-      name: "Client 4",
-      logo: "/assets/clients/client4.png"
+      name: "NISSAN",
+      logo: Nissan
     },
     {
       id: 5,
-      name: "Client 5",
-      logo: "/assets/clients/client5.png"
+      name: "Search",
+      logo: Search
     }
   ]
 };

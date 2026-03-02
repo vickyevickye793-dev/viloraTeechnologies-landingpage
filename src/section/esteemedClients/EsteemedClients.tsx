@@ -46,7 +46,7 @@ export default function EsteemedClients() {
                                     alt={client.name}
                                     width={150}
                                     height={80}
-                                    className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                                    className="object-contain "
                                 />
                             </div>
                         ))}

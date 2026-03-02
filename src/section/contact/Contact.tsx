@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import imagge from "../../../public/assets/hero-banner2.png"
+import imagge from "../../../public/assets/hero-banne3.png"
 import { LocationEdit, Mail, Map, Phone } from "lucide-react";
 import ContactForm from "@/src/component/common/form/ContactForm";
 const Contact = () => {

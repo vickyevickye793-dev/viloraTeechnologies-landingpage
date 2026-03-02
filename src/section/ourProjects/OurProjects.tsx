@@ -83,7 +83,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { OurWorks } from "../../component/localDb/ourWorks";
+import { OurWorks } from "../../component/localDb/OurWorks";
 import { usePathname } from "next/navigation";
 
 export default function OurProjects() {
