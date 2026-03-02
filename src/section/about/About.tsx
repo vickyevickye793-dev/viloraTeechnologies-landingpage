@@ -6,18 +6,13 @@ import PersonalApproach from "../../../public/assets/about/perapp.png";
 import customer from "../../../public/assets/about/customer.png";
 import team from "../../../public/assets/about/team.png";
 import evolute from "../../../public/assets/about/evolute.webp";
-import client from "../../../public/assets/about/h2-test-1.webp";
-import double from "../../../public/assets/about/DoubleQurtes.png";
-import divide from "../../../public/assets/about/divider.webp";
+import client from "../../../public/assets/clientFeedback/clinet.jpg";
+import client1 from "../../../public/assets/clientFeedback/client2.jpg";
 import ProcessMethodologies from "../processMethodologies/ProcessMethodologies";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-// type SetApartItem = {
-//   title: string;
-//   detail: string;
-//   Icon: StaticImageData;
-// };
 const About = () => {
+  
   const setApart = [
     {
       title: "Core Values",
@@ -63,133 +58,131 @@ const About = () => {
   ];
   const feedback = [
     {
-      double: double,
       clientName: "Burdee Nicolas",
       role: "Business Owner",
       img: client,
       feedback:
-        "Partnering with solvior has been a transformative experience for our organization. Their expert guidance through our market expansion strategy was invaluable. They helped us navigate complex regulatory environments and develop a clear, actionable plan that has led to successful",
+        "Partnering with Solvior has been a transformative experience for our organization. Their expert guidance through our digital transformation strategy was invaluable. The team delivered scalable solutions that significantly improved our operational efficiency and customer engagement.",
     },
     {
-      double: double,
       clientName: "Natalie Harry",
-      role: "Sr.Executive",
+      role: "Senior IT Executive",
+      img: client1,
+      feedback:
+        "The professionalism and technical expertise demonstrated by the Solvior team exceeded our expectations. From architecture planning to deployment, every phase was handled with precision and clarity. Our systems are now faster, more secure, and future-ready.",
+    },
+    {
+      clientName: "Daniel Morgan",
+      role: "CTO",
       img: client,
       feedback:
-        "Partnering with solvior has been a transformative experience for our organization. Their expert guidance through our market expansion strategy was invaluable. They helped us navigate complex regulatory environments and develop a clear, actionable plan that has led to successfu",
+        "Solvior helped us modernize our legacy infrastructure with a seamless cloud migration strategy. Their deep understanding of DevOps and automation drastically reduced our deployment time while improving system reliability across all platforms.",
+    },
+    {
+      clientName: "Sophia Reynolds",
+      role: "Product Manager",
+      img: client,
+      feedback:
+        "Working with Solvior was a strategic decision that paid off quickly. Their UI/UX design and frontend development expertise helped us launch a product that not only looks exceptional but also performs flawlessly across devices.",
+    },
+    {
+      clientName: "Arjun Mehta",
+      role: "Head of Engineering",
+      img: client,
+      feedback:
+        "The cybersecurity framework implemented by Solvior strengthened our data protection standards significantly. Their proactive approach, continuous monitoring, and transparent communication gave us complete confidence in our system security.",
     },
   ];
-
   const [active, setActive] = useState(0);
   const current = feedback[active];
 
-  const prev = () =>
-    setActive((i) => (i - 1 + feedback.length) % feedback.length);
+  const prev = () => setActive((i) => (i - 1 + feedback.length) % feedback.length);
   const next = () => setActive((i) => (i + 1) % feedback.length);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % feedback.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [feedback.length]);
   return (
     <>
       <div className="">
-        <section className="relative w-full ">
-          {/* <div className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-primary via-secondary/15 to-transparent rounded-full fade-up delay-1"></div> */}
+        <section className="relative py-32 px-6 overflow-hidden bg-white text-center">
+          <h1
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center 
+                 text-[120px] md:text-[200px] lg:text-[260px] 
+                 font-black text-[#0b1628]/5 select-none pointer-events-none"
+          >
+            VILORA
+          </h1>
 
-          <div className="md:flex  md:justify-around md:items-center w-full   py-12 p-6">
-            <div className="flex flex-col justify-center gap-4 md:gap-5 lg:gap-6">
-              <span className="fade-up delay-1 inline-flex items-center gap-2 text-xs md:text-sm lg:text-base font-medium tracking-widest uppercase text-primary w-fit">
-                <span className="w-6 h-px bg-primary inline-block"></span>
-                Who We Are
-              </span>
+          <div className="relative max-w-4xl mx-auto flex flex-col items-center gap-8">
+            <span className="uppercase tracking-[0.4em] text-primary text-sm font-semibold">
+              Who We Are
+            </span>
 
-              <h1 className="fade-up delay-2 display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0b1628] leading-tight md:leading-snug">
-                Crafting the
-                <br />
-                <span className="italic text-primary">Future</span> Together
-              </h1>
+            <h2
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px]
+                   font-extrabold text-[#0b1628] leading-tight"
+            >
+              Crafting the <br />
+              <span className=" text-primary">Future Together</span>
+            </h2>
 
-              <div className="fade-up delay-3 w-10 md:w-12 h-1 bg-primary rounded-full"></div>
+            <div className="w-16 h-1 bg-primary rounded-full"></div>
 
-              <p className="fade-up delay-4 text-sm md:text-base lg:text-lg text-[#364052] leading-relaxed md:max-w-lg lg:max-w-xl">
-                We're a team of passionate builders who believe great design and
-                technology can change how people experience the world. Every
-                project is a story waiting to be told.
-              </p>
-            </div>
-
-            <div className="flex flex-col justify-center gap-8">
-              <p className=" text-[#364052] leading-relaxed md:border-l-2 md:max-w-xl border-secondary/30 mt-5 md:pl-5 ">
-                VILORA Technologies is a Pondicherry software company led by
-                experienced IT professionals, offering services in software
-                development, mobile app development, web application
-                development, quality assurance, and implementation. With strong
-                expertise in single and multi-operating system environments,
-                VILORA refines and streamlines ideas before designing and
-                building innovative solutions. The company combines technical
-                excellence with deep functional knowledge to deliver effective
-                business solutions, maintaining close client relationships to
-                understand objectives and maximize results.
-              </p>
-
-              <div className="fade-up delay-4 grid grid-cols-3 gap-4">
-                <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#e8e4dc] text-center">
-                  <span className="block text-2xl font-bold text-[#0b1628]">
-                    12+
-                  </span>
-                  <span className="text-xs text-[#364052] uppercase tracking-wide">
-                    Years
-                  </span>
-                </div>
-                <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#e8e4dc] text-center">
-                  <span className="block text-2xl font-bold text-[#0b1628]">
-                    340
-                  </span>
-                  <span className="text-xs text-[#364052] uppercase tracking-wide">
-                    Projects
-                  </span>
-                </div>
-                <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#e8e4dc] text-center">
-                  <span className="block text-2xl font-bold text-[#0b1628]">
-                    98%
-                  </span>
-                  <span className="text-xs text-[#364052] uppercase tracking-wide">
-                    Happy
-                  </span>
-                </div>
-              </div>
-            </div>
+            <p className="text-[#364052] text-lg md:text-xl leading-relaxed max-w-2xl">
+              We are a team of passionate technology experts dedicated to
+              building scalable, secure, and innovative digital solutions that
+              empower businesses to thrive in the modern world.
+            </p>
           </div>
-
-          {/* <div className="mt-4 ml-8 h-px bg-gradient-to-r from-primary/40 via-secondary/10 to-transparent fade-up delay-5"></div> */}
         </section>
 
         <ProcessMethodologies />
-        <div className="">
-          <h1 className="text-center text-4xl font-semibold">
+
+        <section className="">
+          <h2 className="text-center text-4xl font-semibold">
             What Sets Us Apart
-          </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 w-full mt-10">
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:w-7xl mx-auto gap-10  mt-14 p-1">
             {setApart.map(({ Icon, title, detail }, i) => (
               <div
                 key={i}
-                className="card relative bg-white rounded-2xl p-6 flex flex-col gap-5 border border-[#e8e4dc] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
+                className="group relative bg-white  p-6 flex flex-col gap-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
               >
+                <div
+                  className="absolute top-0 left-0 w-20 h-40 border-t-2 border-l-2 border-primary origin-top scale-y-0 
+      transition-transform duration-500  group-hover:bottom-0  group-hover:scale-y-100"
+                ></div>
+                <div className="absolute bottom-0 right-0 w-20 h-40  border-b-2 border-r-2 border-primary origin-bottom scale-y-0 transition-transform duration-500 group-hover:scale-y-100"></div>
+
                 <div className="icon-wrap w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
-                  <Image src={Icon} alt="" className="p-2 invert brightness-0" />
+                  <Image
+                    src={Icon}
+                    alt="setApart"
+                    width={40}
+                    height={40}
+                    className="p-2 invert brightness-0"
+                  />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h1 className="text-[#0b1628] font-bold text-lg leading-snug">
+                  <h2 className="text-[#0b1628] font-bold text-lg leading-snug">
                     {title}
-                  </h1>
+                  </h2>
                   <p className="text-[#364052] text-sm leading-relaxed">
                     {detail}
                   </p>
                 </div>
-
-                <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#0075FF] rounded-full group-hover:w-full transition-all duration-500 hover:w-full"></div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
         <section className="relative overflow-hidden py-24 px-6 md:px-20 font-sans">
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl shadow-blue-200/60 max-w-6xl mx-auto">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-5 rounded-md overflow-hidden shadow-2xl shadow-primary/40 max-w-6xl mx-auto">
             <div className="bg-white px-10 py-14 flex flex-col justify-between gap-10 z-10">
               <div className="inline-flex items-center gap-2 w-fit bg-primary text-white text-sm font-semibold tracking-widest uppercase px-5 py-2 rounded-full shadow-md shadow-blue-400/30">
                 <span className="text-lg leading-none">✦</span>
@@ -206,7 +199,7 @@ const About = () => {
                     key={i}
                     className="group flex flex-col gap-1 border-l-2 border-[#0075FF]/20 pl-4 hover:border-primary transition-colors duration-300"
                   >
-                    <span className="text-4xl md:text-5xl font-extrabold text-[#0b1628] tracking-tight leading-none group-hover:text-[#0075FF] transition-colors duration-300">
+                    <span className="text-4xl md:text-5xl font-extrabold text-[#0b1628] tracking-tight leading-none group-hover:text-primary transition-colors duration-300">
                       {item.number}
                     </span>
                     <span className="text-xs uppercase tracking-widest text-[#7a8599] font-medium">
@@ -217,14 +210,15 @@ const About = () => {
               </div>
             </div>
 
-            <div className="relative bg-[#0b1628] min-h-[420px] flex items-center justify-center overflow-hidden">
+            <div className="relative bg-[#0b1628] min-h-105 flex items-center justify-center overflow-hidden">
               <div className="relative h-full w-full">
                 <Image
                   src={evolute}
-                  alt=""
+                  alt="Our company evolution"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="h-full w-full object-cover"
                 />
-                {/* <div className="absolute inset-0 bg-primary/40 grayscale-25 "></div> */}
               </div>
 
               <div className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-sm border border-white/10 text-white/70 text-xs px-4 py-2 rounded-full font-medium tracking-wide">
@@ -235,13 +229,11 @@ const About = () => {
         </section>
 
         <section className="relative overflow-hidden py-24 px-6 md:px-20">
-
           <div className="relative max-w-6xl mx-auto grid gap-16">
             <div className="text-center grid gap-3">
               <span className="inline-flex items-center justify-center gap-2 text-primary text-sm font-semibold tracking-[0.2em] uppercase">
                 <span className="w-8 h-px bg-/40 inline-block" />
                 Clients Feedback
-                <span className="w-8 h-px bg-[#0075ff]/40 inline-block" />
               </span>
               <h2 className="text-[#0b1628] text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
                 What our clients say
@@ -250,15 +242,17 @@ const About = () => {
 
             <div className="grid md:grid-cols-[1fr_1.4fr] gap-10 items-center">
               <div className="relative hidden md:flex items-center justify-center">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#0075ff]/10 to-transparent" />
+                <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-[#0075ff]/10 to-transparent" />
                 {client ? (
                   <Image
-                    src={client}
-                    alt="Happy client"
-                    className="relative z-10 rounded-3xl w-full object-cover shadow-2xl shadow-blue-200/50"
+                    src={current.img}
+                    alt={`${current.clientName} profile photo`}
+                    width={500}
+                    height={600}
+                    className="rounded-3xl w-full object-cover"
                   />
                 ) : (
-                  <div className="relative z-10 w-full aspect-[4/5] rounded-3xl bg-gradient-to-br from-[#0b1628] to-[#0d2a5e] flex flex-col items-center justify-center gap-4 shadow-2xl shadow-blue-900/30">
+                  <div className="relative z-10 w-full aspect-4/5 rounded-3xl bg-linear-to-br from-[#0b1628] to-[#0d2a5e] flex flex-col items-center justify-center gap-4 shadow-2xl shadow-blue-900/30">
                     <div className="grid grid-cols-2 gap-3 opacity-20">
                       {[...Array(4)].map((_, i) => (
                         <div
@@ -276,7 +270,7 @@ const About = () => {
                   <p className="text-[#0b1628] font-bold text-sm leading-none">
                     500+ clients
                   </p>
-                  <p className="text-gray-400 text-xs mt-0.5">
+                  <p className="text-gray-500 text-xs mt-0.5">
                     trust us worldwide
                   </p>
                 </div>
@@ -301,7 +295,7 @@ const About = () => {
                   "{current.feedback}"
                 </blockquote>
 
-                <div className="w-full h-px bg-gradient-to-r from-[#0075ff]/20 via-[#0075ff]/40 to-transparent" />
+                <div className="w-full h-px bg-primary/40" />
 
                 <div className="flex items-center justify-between gap-4 flex-wrap">
                   <div className="flex items-center gap-4">
@@ -318,14 +312,14 @@ const About = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={prev}
-                      aria-label="Previous"
+                      aria-label="Previous testimonial"
                       className="cursor-pointer w-11 h-11 rounded-full border border-white flex items-center justify-center text-[#0b1628] hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-lg"
                     >
                       <ArrowLeft size={18} />
                     </button>
                     <button
                       onClick={next}
-                      aria-label="Next"
+                      aria-label="Next testimonial"
                       className="cursor-pointer w-11 h-11 rounded-full border border-white flex items-center justify-center text-[#0b1628] hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm"
                     >
                       <ArrowRight size={18} />
