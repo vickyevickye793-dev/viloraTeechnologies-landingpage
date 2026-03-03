@@ -160,7 +160,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { FooterData } from "../../component/localDb/footerData";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
@@ -170,7 +170,21 @@ const Footer = () => {
   const col3Ref = useRef<HTMLDivElement>(null);
   const col4Ref = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const { description, services, quickLinks, follows, contactInfo } = FooterData;
 
+
+  const socialIconMap: Record<string, React.ComponentType<{ size?: number }>> = {
+    facebook: Facebook,
+    instagram: Instagram,
+    twitter: Twitter,
+    linkedin: Linkedin,
+  };
+
+  const contactIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+    mail: Mail,
+    phone: Phone,
+    location: MapPin,
+  };
   useEffect(() => {
     const ctx = gsap.context(() => {
       const cols = [col1Ref.current, col2Ref.current, col3Ref.current, col4Ref.current];
@@ -203,36 +217,8 @@ const Footer = () => {
     return () => ctx.revert();
   }, []);
 
-  const description =
-    "For several businesses and organizations in the sector, we are the trusted technology resource. We help you establish your business growth with expert solutions.";
 
-  const services = [
-    "Web Development",
-    "Mobile Apps",
-    "UI/UX Design",
-    "SEO",
-    "Digital Marketing"
-  ];
 
-  const quickLinks = [
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Our Works", href: "/ourWorks" },
-    { label: "Contact", href: "/contact" },
-  ];
-
-  const follows = [
-    { href: "https://www.facebook.com/ViloraTechnologies/", Icon: Facebook },
-    { href: "https://www.instagram.com/viloratechnologies/", Icon: Instagram },
-    { href: "#", Icon: Twitter },
-    { href: "#", Icon: Linkedin },
-  ];
-
-  const contactInfo = [
-    { icon: Mail, label: "info@viloratechnologies.com", href: "mailto:info@viloratechnologies.com" },
-    { icon: Phone, label: "+91 8610391458", href: "tel:8610391458" },
-    { icon: MapPin, label: "1st Floor, 62, Vallalar Salai Rd, Venkata Nagar, Puducherry, 605011", href: "https://maps.app.goo.gl/RZWDAnrVS584vrcS9" },
-  ];
 
   return (
     <footer ref={footerRef} className="bg-[#0d1b3e] text-[#c8d6ec] font-sans">
@@ -292,31 +278,37 @@ const Footer = () => {
             Follow Us
           </p>
           <div className="mt-2 flex flex-col gap-2.5">
-            {contactInfo.map(({ icon: Icon, label, href }, i) => (
-              <a
-                key={i}
-                href={href}
-                className="flex items-center gap-2.5 text-md text-white/50 hover:text-[#cf282e] transition-colors duration-200 group"
-              >
-                <span className="w-7 h-7 rounded-full bg-white/5 group-hover:bg-[#cf282e]/20 flex items-center justify-center transition-colors duration-200 shrink-0">
-                  <Icon className="w-3.5 h-3.5" />
-                </span>
-                {label}
-              </a>
-            ))}
+            {contactInfo.map(({ type, label, href }, i) => {
+              const Icon = contactIconMap[type];
+              return (
+                <a
+                  key={i}
+                  href={href}
+                  className="flex items-center gap-2.5 text-md text-white/50 hover:text-[#cf282e] transition-colors duration-200 group"
+                >
+                  <span className="w-7 h-7 rounded-full bg-white/5 group-hover:bg-[#cf282e]/20 flex items-center justify-center transition-colors duration-200 shrink-0">
+                    {Icon && <Icon className="w-3.5 h-3.5" />}
+                  </span>
+                  {label}
+                </a>
+              );
+            })}
           </div>
           <div className="flex gap-3">
-            {follows.map(({ Icon, href }, i) => (
-              <a
-                key={i}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-[#cf282e] hover:text-white hover:border-[#cf282e] transition-all duration-200"
-              >
-                <Icon size={16} />
-              </a>
-            ))}
+            {follows.map(({ name, href }, i) => {
+              const Icon = socialIconMap[name];
+              return (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-[#cf282e] hover:text-white hover:border-[#cf282e] transition-all duration-200"
+                >
+                  {Icon && <Icon size={16} />}
+                </a>
+              );
+            })}
           </div>
 
 

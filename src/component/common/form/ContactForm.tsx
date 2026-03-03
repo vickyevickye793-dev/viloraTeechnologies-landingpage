@@ -34,7 +34,7 @@ const ContactForm = () => {
 
     const encodedMessage = encodeURIComponent(message);
 
-    const whatsappNumber = "918148661539";
+    const whatsappNumber = "917598501503";
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
@@ -168,9 +168,9 @@ const ContactForm = () => {
               }}
           className="relative group overflow-hidden  flex items-center gap-3  bg-white  px-5 py-3 md:px-6 md:py-3 rounded-full font-semibold"
         >
-          <span className="absolute inset-0 w-0 bg-blue-600 transition-all duration-500 group-hover:w-full rounded-full"></span>
+          <span className="absolute inset-0 w-0 bg-primary transition-all duration-500 group-hover:w-full rounded-full"></span>
 
-          <span className="relative z-10  bg-blue-800 text-white w-8 h-8 flex items-center justify-center rounded-full transition-all duration-500  group-hover:bg-white  group-hover:text-blue-600">
+          <span className="relative z-10  bg-primary text-white w-8 h-8 flex items-center justify-center rounded-full transition-all duration-500  group-hover:bg-white  group-hover:text-primary">
                 <ArrowRight />
           </span>
 

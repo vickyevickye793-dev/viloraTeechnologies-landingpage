@@ -9,6 +9,7 @@ const Services = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
+<<<<<<< HEAD
   return (
     <div className="">
       <section className="bg-white py-20 px-6">
@@ -28,6 +29,24 @@ const Services = () => {
             </p>
           )}
         </div>
+=======
+    return (
+        <section className="bg-white py-20 px-6">
+            <div className="text-center max-w-4xl mx-auto mb-14">
+                <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+                    Our Services
+                </h2>
+                {!isHomePage && (
+                    <p className="text-gray-500 font-bold leading-relaxed">
+                        We deliver innovative and scalable digital solutions tailored to your business goals.
+                        Our services combine strategy, technology, and creativity to build powerful digital experiences.
+                        We focus on performance, security, and long-term growth while ensuring cost-effective
+                        and timely delivery. Our mission is to transform ideas into impactful technology solutions
+                        that drive measurable success for our clients.
+                    </p>
+                )}
+            </div>
+>>>>>>> 50214806556936fd2109a13e3e14edeed34851af
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
           {servicesData.map((service: Service) => {

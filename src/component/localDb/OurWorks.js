@@ -46,7 +46,7 @@ export const OurWorks = [
         homeImg: home1,
         pageImg: pageImg1,
         url: "https://singatour.com/",
-        category: "toursite"
+        category: "Toursite"
     },
     {
         id: 2,
@@ -54,7 +54,7 @@ export const OurWorks = [
         homeImg: home2,
         pageImg: pageImg2,
         url: "http://benforum.com/index.html",
-        category: "OtherSites"
+        category: "Othersites"
     },
     {
         id: 3,
@@ -62,7 +62,7 @@ export const OurWorks = [
         homeImg: home3,
         pageImg: pageImg3,
         url: "http://mirthistudios.com/",
-        category: "studio"
+        category: "Studio"
     },
     {
         id: 4,
@@ -70,7 +70,7 @@ export const OurWorks = [
         homeImg: home4,
         pageImg: pageImg4,
         url: "http://shinypearlsdentalcare.com/",
-        category: "healthCare"
+        category: "HealthCare"
     },
     {
         id: 5,
@@ -78,7 +78,7 @@ export const OurWorks = [
         homeImg: home5,
         pageImg: pageImg5,
         url: "http://103.186.185.245:8087/index.html",
-        category: "onlineShopping"
+        category: "OnlineShopping"
     },
     {
         id: 6,
@@ -86,7 +86,7 @@ export const OurWorks = [
         homeImg: home6,
         pageImg: pageImg6,
         url: "#",
-        category: "studio"
+        category: "Studio"
     },
     {
         id: 7,
@@ -94,7 +94,7 @@ export const OurWorks = [
         homeImg: home7,
         pageImg: pageImg7,
         url: "#",
-        category: "onlineShopping"
+        category: "OnlineShopping"
     },
     {
         id: 8,
@@ -102,7 +102,7 @@ export const OurWorks = [
         homeImg: home8,
         pageImg: pageImg8,
         url: "#",
-        category: "studio"
+        category: "Studio"
     },
     {
         id: 9,
@@ -110,7 +110,7 @@ export const OurWorks = [
         homeImg: home9,
         pageImg: pageImg9,
         url: "https://www.nivafoods.com.sg/",
-        category: "onlineShopping"
+        category: "OnlineShopping"
     },
     {
         id: 10,
@@ -118,7 +118,7 @@ export const OurWorks = [
         homeImg: home10,
         pageImg: pageImg10,
         url: "#",
-        category: "studio"
+        category: "Studio"
     },
     {
         id: 11,
@@ -126,7 +126,7 @@ export const OurWorks = [
         homeImg: home11,
         pageImg: pageImg11,
         url: "#",
-        category: "onlineShopping"
+        category: "OnlineShopping"
     },
     {
         id: 12,
@@ -134,7 +134,7 @@ export const OurWorks = [
         homeImg: home12,
         pageImg: pageImg12,
         url: "https://cervocare.com/",
-        category: "healthCare"
+        category: "HealthCare"
     },
     {
         id: 13,
@@ -142,7 +142,7 @@ export const OurWorks = [
         homeImg: home13,
         pageImg: pageImg13,
         url: "http://aeroseptix.in/",
-        category: "onlineShopping"
+        category: "OnlineShopping"
     },
     {
         id: 14,
@@ -150,7 +150,7 @@ export const OurWorks = [
         homeImg: home14,
         pageImg: pageImg14,
         url: "#",
-        category: "OtherSites"
+        category: "Othersites"
     },
     {
         id: 15,
@@ -158,7 +158,7 @@ export const OurWorks = [
         homeImg: home15,
         pageImg: pageImg15,
         url: "https://nadiastrobhava.com/",
-        category: "OtherSites"
+        category: "Othersites"
     },
     {
         id: 16,
@@ -166,7 +166,7 @@ export const OurWorks = [
         homeImg: home16,
         pageImg: pageImg16,
         url: "#",
-        category: "OtherSites"
+        category: "Othersites"
     },
     {
         id: 17,
