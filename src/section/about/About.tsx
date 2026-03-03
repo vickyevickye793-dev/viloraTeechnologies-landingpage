@@ -9,10 +9,10 @@ import evolute from "../../../public/assets/about/evolute.webp";
 import client from "../../../public/assets/clientFeedback/clinet.jpg";
 import client1 from "../../../public/assets/clientFeedback/client2.jpg";
 import ProcessMethodologies from "../processMethodologies/ProcessMethodologies";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 const About = () => {
-  
   const setApart = [
     {
       title: "Core Values",
@@ -95,8 +95,27 @@ const About = () => {
   ];
   const [active, setActive] = useState(0);
   const current = feedback[active];
+  const headlineRef= useRef(null)
+  const subtitleRef =useRef(null)
+  useEffect(()=>{
+     const ctx = gsap.context(() => {
 
-  const prev = () => setActive((i) => (i - 1 + feedback.length) % feedback.length);
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    
+      gsap.set(headlineRef.current, { y: 60, opacity: 0 });
+      gsap.set(subtitleRef.current, { y: 30, opacity: 0 });
+
+
+       tl.to(headlineRef.current, { y: 0, opacity: 1, duration: 0.8 }, 0.25)
+        // Subtitle
+        .to(subtitleRef.current, { y: 0, opacity: 1, duration: 0.6 }, 0.5)
+
+     })
+
+},[])
+    
+  const prev = () =>
+    setActive((i) => (i - 1 + feedback.length) % feedback.length);
   const next = () => setActive((i) => (i + 1) % feedback.length);
 
   useEffect(() => {
@@ -109,32 +128,32 @@ const About = () => {
   return (
     <>
       <div className="">
-        <section className="relative py-32 px-6 overflow-hidden bg-white text-center">
+        <section className="relative py-28 -mt-12 px-6 overflow-hidden bg-white text-center">
           <h1
             aria-hidden="true"
-            className="absolute inset-0 flex items-center justify-center 
+            className="absolute inset-0 flex -top-1/6 items-center tracking-[0.2em] justify-center 
                  text-[120px] md:text-[200px] lg:text-[260px] 
                  font-black text-[#0b1628]/5 select-none pointer-events-none"
           >
             VILORA
           </h1>
 
-          <div className="relative max-w-4xl mx-auto flex flex-col items-center gap-8">
+          <div  className="relative max-w-4xl mx-auto flex flex-col items-center gap-8">
             <span className="uppercase tracking-[0.4em] text-primary text-sm font-semibold">
               Who We Are
             </span>
 
-            <h2
+            <h2 ref={headlineRef}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px]
                    font-extrabold text-[#0b1628] leading-tight"
             >
               Crafting the <br />
-              <span className=" text-primary">Future Together</span>
+              <span className=" text-primary ">Future Together</span>
             </h2>
 
-            <div className="w-16 h-1 bg-primary rounded-full"></div>
+            <div className="w-16 h-1 bg-primary rounded-full "></div>
 
-            <p className="text-[#364052] text-lg md:text-xl leading-relaxed max-w-2xl">
+            <p ref={subtitleRef} className="text-[#364052] text-lg md:text-xl leading-relaxed max-w-2xl">
               We are a team of passionate technology experts dedicated to
               building scalable, secure, and innovative digital solutions that
               empower businesses to thrive in the modern world.
