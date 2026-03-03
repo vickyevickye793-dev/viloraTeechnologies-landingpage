@@ -83,6 +83,7 @@ const navItems = [
   { label: "About", href: "/about", hasDropdown: false },
   { label: "Services", href: "/services", hasDropdown: false },
   { label: "Our Projects", href: "/our-projects", hasDropdown: false },
+  { label: "Our Products", href: "/our-products", hasDropdown: false },
   { label: "Contact", href: "/contact", hasDropdown: false },
   { label: "Internship", href: "/internship-in-pondicherry", hasDropdown: false },
 ];

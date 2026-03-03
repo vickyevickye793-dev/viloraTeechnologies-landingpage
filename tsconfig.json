@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/component/common/CustomCursor.jsx", "app/page.js", "src/section/internship/FullStack.jsx"  ],
+, "src/component/common/CustomCursor.jsx", "app/page.js", "src/section/internship/FullStack.jsx", "src/section/industriesServe"  ],
   "exclude": ["node_modules"]
 }

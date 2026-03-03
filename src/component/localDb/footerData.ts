@@ -22,6 +22,7 @@ export const FooterData: FooterType = {
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Our Works", href: "/our-projects" },
+    { label: "Our Products", href: "/our-products"},
     { label: "Contact", href: "/contact" },
   ],
 

@@ -185,3 +185,149 @@ export const OurWorks = [
         category: "MobilApp"
     }
 ];
+export const OurProduct = [
+    {
+        id: 1,
+        name: "Singatour",
+        homeImg: home1,
+        pageImg: pageImg1,
+        url: "https://singatour.com/",
+        category: "Toursite"
+    },
+    {
+        id: 2,
+        name: "BEN Forum",
+        homeImg: home2,
+        pageImg: pageImg2,
+        url: "http://benforum.com/index.html",
+        category: "Othersites"
+    },
+    {
+        id: 3,
+        name: "Mirthi Studios",
+        homeImg: home3,
+        pageImg: pageImg3,
+        url: "http://mirthistudios.com/",
+        category: "Studio"
+    },
+    {
+        id: 4,
+        name: "Shiny Pearls Dental Care",
+        homeImg: home4,
+        pageImg: pageImg4,
+        url: "http://shinypearlsdentalcare.com/",
+        category: "HealthCare"
+    },
+    {
+        id: 5,
+        name: "Amman Organic",
+        homeImg: home5,
+        pageImg: pageImg5,
+        url: "http://103.186.185.245:8087/index.html",
+        category: "OnlineShopping"
+    },
+    {
+        id: 6,
+        name: "Plan Mydream Event",
+        homeImg: home6,
+        pageImg: pageImg6,
+        url: "#",
+        category: "Studio"
+    },
+    {
+        id: 7,
+        name: "Vilora Shopping",
+        homeImg: home7,
+        pageImg: pageImg7,
+        url: "#",
+        category: "OnlineShopping"
+    },
+    {
+        id: 8,
+        name: "Infinite Studio",
+        homeImg: home8,
+        pageImg: pageImg8,
+        url: "#",
+        category: "Studio"
+    },
+    {
+        id: 9,
+        name: "Niva Foods",
+        homeImg: home9,
+        pageImg: pageImg9,
+        url: "https://www.nivafoods.com.sg/",
+        category: "OnlineShopping"
+    },
+    {
+        id: 10,
+        name: "Happy Moment",
+        homeImg: home10,
+        pageImg: pageImg10,
+        url: "#",
+        category: "Studio"
+    },
+    // {
+    //     id: 11,
+    //     name: "Pondy Bajar",
+    //     homeImg: home11,
+    //     pageImg: pageImg11,
+    //     url: "#",
+    //     category: "OnlineShopping"
+    // },
+    // {
+    //     id: 12,
+    //     name: "Cervo Care",
+    //     homeImg: home12,
+    //     pageImg: pageImg12,
+    //     url: "https://cervocare.com/",
+    //     category: "HealthCare"
+    // },
+    // {
+    //     id: 13,
+    //     name: "Aeroseptix",
+    //     homeImg: home13,
+    //     pageImg: pageImg13,
+    //     url: "http://aeroseptix.in/",
+    //     category: "OnlineShopping"
+    // },
+    // {
+    //     id: 14,
+    //     name: "Bharrathividyashram",
+    //     homeImg: home14,
+    //     pageImg: pageImg14,
+    //     url: "#",
+    //     category: "Othersites"
+    // },
+    // {
+    //     id: 15,
+    //     name: "Nadi Astro Bhava",
+    //     homeImg: home15,
+    //     pageImg: pageImg15,
+    //     url: "https://nadiastrobhava.com/",
+    //     category: "Othersites"
+    // },
+    // {
+    //     id: 16,
+    //     name: "Job Portal",
+    //     homeImg: home16,
+    //     pageImg: pageImg16,
+    //     url: "#",
+    //     category: "Othersites"
+    // },
+    // {
+    //     id: 17,
+    //     name: "Cervo Care App",
+    //     homeImg: home17,
+    //     pageImg: pageImg17,
+    //     url: "https://play.google.com/store/search?q=cervo+care&c=apps&hl=en-IN",
+    //     category: "MobilApp"
+    // },
+    // {
+    //     id: 18,
+    //     name: "Vilora Shopping App",
+    //     homeImg: home18,
+    //     pageImg: pageImg18,
+    //     url: "#",
+    //     category: "MobilApp"
+    // }
+];

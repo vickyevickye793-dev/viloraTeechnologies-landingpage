@@ -5,6 +5,7 @@ import ProcessMethodologies from "@/src/section/processMethodologies/ProcessMeth
 import ServicesSection from "@/src/section/Services/Services";
 import OurProjects from "@/src/section/ourProjects/OurProjects";
 import EsteemedClients from "@/src/section/esteemedClients/EsteemedClients";
+import IndustriesServe from "@/src/section/industriesServe/IndustriesServe";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <EsteemedClients />
         <ProcessMethodologies />
         <OurProjects />
+        <IndustriesServe/>
         <Footer />
       </main>
     </div>
