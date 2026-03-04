@@ -1,14 +1,16 @@
+
 import client from "../../../public/assets/clients/client.jpg"
 import Anbu from "../../../public/assets/clients/Anbu.jpg"
 import Jipmer from "../../../public/assets/clients/jipmer.jpg"
 import Nissan from "../../../public/assets/clients/nissam.jpg"
 import Pondy from "../../../public/assets/clients/pondy.jpg"
 import Search from "../../../public/assets/clients/search.jpg"
+import { ClientsData } from "@/src/section/esteemedClients/EsteemedClients"
 
 
 
 
-export const EsteemedClientsData = {
+export const EsteemedClientsData:ClientsData = {
   title: "Our Esteemed Clients",
   description:
     "Our wide experience and knowledge embrace a mix of business-to-business, business-to-consumer and small scale industries that reside in our home state of India while also reaching into far away destinations such as America, Singapore and Australia.",

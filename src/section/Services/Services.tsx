@@ -31,14 +31,14 @@ const Services = () => {
       });
 
       tl.from(headlineRef.current, {
-        x: -60,
+        y: 40,
         opacity: 0,
         duration: 0.9,
       })
 
         .from(
           subtitleRef.current,
-          { x: 40, opacity: 0, duration: 0.7 },
+          { y: 40, opacity: 0, duration: 0.7 },
           "-=0.4",
         )
 
