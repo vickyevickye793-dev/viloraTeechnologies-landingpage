@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { create } from "zustand";
 
 export interface FormData {
@@ -18,9 +19,10 @@ export interface FormError {
 
 export interface FormStore {
   formData: FormData;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
   error: FormError;
+
   validate: () => boolean;
+  setFeild: (name: string, value: any) => void;
 }
 
 export const useFormStore = create<FormStore>((set, get) => ({
@@ -34,30 +36,37 @@ export const useFormStore = create<FormStore>((set, get) => ({
 
   error: {},
 
-  onChange: (e) => {
+  setFeild: (name, value) => {
     set((state) => ({
       formData: {
         ...state.formData,
-        [e.target.name]: e.target.value,
+        [name]: value,
       },
-      error: { ...state.error, [e.target.name]: "" },
+      error: { ...state.error, [name]: "" },
     }));
   },
 
   validate: () => {
     const { formData } = get();
     let error: FormError = {};
-    let Number = /^\+?[1-9]\d{6,14}$/
-    let Email = /^\S+@\S+\.\S+$/
+
+    let Email = /^\S+@\S+\.\S+$/;
     if (!formData.fullName) error.fullName = "Name is required";
+    // if (!formData.fullName) toast.error("Name is required");
     if (!formData.email) error.email = "Email is required";
-        else if (!Email.test(formData.email)) { error.email = "Invalid email" }
+    // if (!formData.email) toast.error("Email is required");
+    else if (!Email.test(formData.email)) error.email = "Invalid email";
     if (!formData.phoneNumber) error.phoneNumber = "Phone Number is required";
-    else if (!Number.test(formData.phoneNumber)) { error.phoneNumber = "Invalid phone number format" }
+    // if (!formData.phoneNumber) toast.error("Phone Number is required");
+    else if (formData.phoneNumber.length < 10)
+      error.phoneNumber = "Phone must have 10 digits";
     if (!formData.inquiryType) error.inquiryType = "InquiryType is required";
+    // if (!formData.inquiryType) toast.error("InquiryType is required");
+
+    // if (!formData.message) toast.error("Message is required");
     if (!formData.message) error.message = "Message is required";
 
-    set({ error })
+    set({ error });
     return Object.keys(error).length === 0;
   },
 }));

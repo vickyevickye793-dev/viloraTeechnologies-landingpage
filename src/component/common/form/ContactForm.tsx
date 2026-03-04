@@ -1,11 +1,10 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useFormStore } from "../../../section/Store/FormStore/useFormStore";
-import Link from "next/link";
+import { useFormStore } from "../../../store/FormStore/useFormStore";
 
 const ContactForm = () => {
-  const { formData, error, onChange, validate } = useFormStore();
+  const { formData, error, setFeild, validate } = useFormStore();
 
   const handleWhatsAppSubmit = () => {
     const now = new Date();
@@ -67,10 +66,11 @@ const ContactForm = () => {
               <label htmlFor="fullName" className="text-sm text-gray-500 mb-1">
                 Full name<span className="text-red-500">*</span>
               </label>
-              <input id="fullName"
+              <input
+                id="fullName"
                 name="fullName"
                 value={formData.fullName}
-                onChange={onChange}
+                onChange={(e) => setFeild("fullName", e.target.value)}
                 type="text"
                 className="bg-transparent border-b border-gray-400 outline-none text-gray-800 py-2 focus:border-blue-500 transition-colors"
               />
@@ -83,11 +83,11 @@ const ContactForm = () => {
               <label htmlFor="email" className="text-sm text-gray-500 mb-1">
                 Email address<span className="text-red-500">*</span>
               </label>
-              <input id="email"
+              <input
+                id="email"
                 name="email"
                 value={formData.email}
-                onChange={onChange}
-                type="email"
+                onChange={(e) => setFeild("email", e.target.value)}
                 className="bg-transparent border-b border-gray-400 outline-none text-gray-800 py-2 focus:border-blue-500 transition-colors"
               />
               {error.email && (
@@ -98,14 +98,21 @@ const ContactForm = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex flex-col">
-              <label htmlFor="phoneNumber" className="text-sm text-gray-500 mb-1">
+              <label
+                htmlFor="phoneNumber"
+                className="text-sm text-gray-500 mb-1"
+              >
                 Phone number<span className="text-red-500">*</span>
               </label>
-              <input id="phoneNumber"
+              <input
+                id="phoneNumber"
                 name="phoneNumber"
                 value={formData.phoneNumber}
-                onChange={onChange}
-                type="tel"
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, "").slice(0,10);
+                  setFeild("phoneNumber", value);
+                }}
+      
                 className="bg-transparent border-b border-gray-400 outline-none text-gray-800 py-2 focus:border-blue-500 transition-colors"
               />
               {error.phoneNumber && (
@@ -116,11 +123,17 @@ const ContactForm = () => {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="inquiryType" className="text-sm text-gray-500 mb-1">Inquiry Type</label>
-              <select id="inquiryType"
+              <label
+                htmlFor="inquiryType"
+                className="text-sm text-gray-500 mb-1"
+              >
+                Inquiry Type
+              </label>
+              <select
+                id="inquiryType"
                 name="inquiryType"
                 value={formData.inquiryType}
-                onChange={onChange}
+                onChange={(e) => setFeild("inquiryType", e.target.value)}
                 className="bg-transparent border-b border-gray-400 outline-none text-gray-600 py-2 focus:border-blue-500 transition-colors cursor-pointer"
               >
                 <option value="" disabled>
@@ -142,11 +155,14 @@ const ContactForm = () => {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="message" className="text-sm text-gray-500 mb-1">Message</label>
-            <textarea id="message"
+            <label htmlFor="message" className="text-sm text-gray-500 mb-1">
+              Message
+            </label>
+            <textarea
+              id="message"
               name="message"
               value={formData.message}
-              onChange={onChange}
+              onChange={(e) => setFeild("message", e.target.value)}
               placeholder="Type message"
               rows={4}
               className="bg-transparent border-b border-gray-400 outline-none text-gray-800 py-2 resize-none placeholder-gray-400 focus:border-blue-500 transition-colors"
@@ -160,24 +176,24 @@ const ContactForm = () => {
 
           <div className="flex justify-center items-center sm:justify-end">
             <button
-            type="submit"
+              type="submit"
               onClick={() => {
                 if (!validate) {
                   handleWhatsAppSubmit;
                 }
               }}
-          className="relative group overflow-hidden  flex items-center gap-3  bg-white  px-5 py-3 md:px-6 md:py-3 rounded-full font-semibold"
-        >
-          <span className="absolute inset-0 w-0 bg-primary transition-all duration-500 group-hover:w-full rounded-full"></span>
+              className="relative group overflow-hidden  flex items-center gap-3  bg-white  px-5 py-3 md:px-6 md:py-3 rounded-full font-semibold"
+            >
+              <span className="absolute inset-0 w-0 bg-primary transition-all duration-500 group-hover:w-full rounded-full"></span>
 
-          <span className="relative z-10  bg-primary text-white w-8 h-8 flex items-center justify-center rounded-full transition-all duration-500  group-hover:bg-white  group-hover:text-primary">
+              <span className="relative z-10  bg-primary text-white w-8 h-8 flex items-center justify-center rounded-full transition-all duration-500  group-hover:bg-white  group-hover:text-primary">
                 <ArrowRight />
-          </span>
+              </span>
 
-          <span className="relative z-10 text-black  transition-colors duration-500 group-hover:text-white">
-            Send message
-          </span>
-        </button>
+              <span className="relative z-10 text-black  transition-colors duration-500 group-hover:text-white">
+                Send message
+              </span>
+            </button>
           </div>
         </form>
       </div>

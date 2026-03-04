@@ -1,22 +1,22 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { EsteemedClientsData } from "../../component/localDb/EsteemedClients";
 
 type Client = {
   id: number;
   name: string;
-  logo: string;
+  logo: StaticImageData;
 };
 
-type ClientsData = {
+export interface ClientsData{
   title: string;
   description: string;
   clients: Client[];
 };
 
-export default function EsteemedClients() {
-  const { title, description, clients } = EsteemedClientsData as ClientsData;
+const EsteemedClients =() =>{
+  const { title, description, clients } = EsteemedClientsData ;
 
   const duplicatedClients = [...clients, ...clients];
 
@@ -34,7 +34,7 @@ export default function EsteemedClients() {
             {duplicatedClients.map((client, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg border border-gray-200 p-6 flex items-center justify-center min-w-[200px] mx-6"
+                className="bg-white rounded-lg border border-gray-200 p-6 flex items-center justify-center min-w-50 mx-6"
               >
                 {client.logo && (
                   <Image
@@ -53,3 +53,4 @@ export default function EsteemedClients() {
     </section>
   );
 }
+export default EsteemedClients
