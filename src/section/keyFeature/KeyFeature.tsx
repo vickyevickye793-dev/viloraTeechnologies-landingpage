@@ -48,7 +48,7 @@ const KeyFeature = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 bg-white overflow-hidden px-5"
+      className="relative  bg-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto ">
         <div className="text-center mb-16">

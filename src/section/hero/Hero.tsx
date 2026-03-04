@@ -85,9 +85,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import Shape from "../../../public/assets/shapes.webp";
+import Robo from "../../../public/assets/hero/robo.webp";
 import { gsap } from "gsap";
 import MarqueeSection from "@/src/component/common/MarqueeSection";
 
@@ -136,7 +136,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative ">
       <div
         ref={glowRef}
         className="absolute -right-60 -top-80 w-125 h-125 md:w-175 md:h-175 bg-[#cf282e] rounded-full blur-[180px] opacity-20 pointer-events-none"
@@ -168,56 +168,14 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="relative w-full bg-primary" style={{ maxHeight: "420px" }}>
-          {/* <div
-            ref={bannerRef}
-            className="w-full overflow-hidden"
-            style={{ maxHeight: "420px" }}
-          >
-            <Image
-              src={heroBanner}
-              alt="Hero banner"
-              className="w-full object-cover object-bottom"
-              priority
-            />
-          </div> */}
+  
 
-          {/* <div
-            ref={badgeRef}
-            className="hidden md:block absolute z-50 -top-20 right-20 lg:right-80 w-40 h-40 lg:w-44 lg:h-44 pointer-events-none rounded-full bg-[#e8eef6] border-white border-8"
-          >
-            <div className="relative w-full h-full bg-[#cf282e] rounded-full">
-              <svg
-                className="absolute inset-0 w-full h-full spin-animation"
-                viewBox="0 0 100 100"
-                style={{ animation: "spin 12s linear infinite" }}
-              >
-                <defs>
-                  <path
-                    id="circle"
-                    d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                  />
-                </defs>
-                <text fontSize="10.5" fontWeight="600" fill="#ffffff" letterSpacing="1.5">
-                  <textPath href="#circle"> . VILORA TECHNOLOGIES . Pvt Ltd</textPath>
-                </text>
-              </svg>
 
-              <div className="absolute inset-0 m-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
-                <ArrowDown className="w-5 h-5 text-black" />
-              </div>
 
-              <div className="absolute inset-0 rounded-full bg-[#0d1b3e] -z-10" />
-            </div>
-          </div> */}
-
-          <div className="mt-10">
-            <MarqueeSection />
-          </div>
-
-        </div>
       </section>
-
+      <div className="mt-10 bg-primary">
+        <MarqueeSection />
+      </div>
 
     </div>
   );

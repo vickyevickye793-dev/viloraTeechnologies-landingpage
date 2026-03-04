@@ -77,6 +77,10 @@
 //     </section>
 //   );
 // }
+
+
+
+
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -133,11 +137,23 @@ export default function OurProjects() {
     const filteredData = activeCategory === "All" ? data : data.filter(item => item.category === activeCategory);
 
     return (
-        <section className="bg-white py-20 px-4 min-h-screen flex flex-col items-center">
-            <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-                    Our Works
+        <section className="bg-white flex flex-col items-center">
+
+            <div className="flex flex-col items-center pb-10 text-center">
+                <p className="text-primary font-semibold uppercase tracking-[0.2em] text-sm">
+                    Our Work
+                </p>
+
+                <h2 className="text-5xl font-extrabold leading-[1.18] tracking-tight text-secondary">
+                    Our Client <span className="text-primary">Projects</span>
                 </h2>
+
+                <div className="w-16 h-1 bg-primary rounded-full mt-3"></div>
+
+                <p className="text-gray-500 font-bold leading-relaxed mt-5 max-w-2xl">
+                    We proudly deliver innovative digital solutions for businesses across India
+                    while continuously expanding our presence into global markets.
+                </p>
             </div>
 
             {!isHomePage && (
@@ -152,10 +168,14 @@ export default function OurProjects() {
 
             {isHomePage ? (
                 <div className="max-w-7xl w-full overflow-hidden relative">
-                    <div ref={sliderRef} className={`flex gap-6 ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}style={{transform: `translateX(-${currentIndex * 20}%)`,}}>
+                    <div ref={sliderRef} className={`flex gap-6 ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`} style={{ transform: `translateX(-${currentIndex * 20}%)`, }}>
                         {data.map((project, index) => (
-                            <div key={index} className="min-w-full h-[300px] md:min-w-[33.33%] relative group md:h-[480px] rounded-sm overflow-hidden">
-                                <Image src={isHomePage ? project.homeImg : project.pageImg} alt={project.name} fill className="object-cover grayscale-90 transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"/>
+                            <div key={index}
+                                // style={{
+                                //     clipPath: "polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%)",
+                                // }}
+                                className="min-w-full h-[300px] md:min-w-[33.33%] relative group md:h-[480px] rounded-sm overflow-hidden">
+                                <Image src={isHomePage ? project.homeImg : project.pageImg} alt={project.name} fill className="object-cover grayscale-90 transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
 
                                 <div className="absolute inset-0 flex top-5 justify-center ">
                                     <h3 className="text-white text-2xl font-bold text-center px-4">
@@ -166,9 +186,21 @@ export default function OurProjects() {
                         ))}
                     </div>
 
-                    <div className="flex justify-center gap-2 mt-10">
+                    <div className="flex justify-center gap-3 mt-10">
                         {Array.from({ length: data.length - 2 }).map((_, idx) => (
-                            <button key={idx} onClick={() => setCurrentIndex(idx)} className={`h-1.5 transition-all duration-500 rounded-full ${currentIndex === idx ? "w-10 bg-primary" : "w-2 bg-primary/30"}`}/>
+                            <button
+                                key={idx}
+                                onClick={() => setCurrentIndex(idx)}
+                                aria-label={`Go to slide ${idx + 1}`}
+                                className=" flex items-center justify-center"
+                            >
+                                <span
+                                    className={`block h-2 rounded-full transition-all duration-500 ${currentIndex === idx
+                                        ? "w-8 bg-primary"
+                                        : "w-2 bg-primary/30"
+                                        }`}
+                                />
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -179,7 +211,7 @@ export default function OurProjects() {
                             <div className="w-[230px]">
 
                                 <div className="relative w-full h-[200px] rounded-xl overflow-hidden">
-                                    <Image src={isHomePage ? project.homeImg : project.pageImg} alt={project.name} fill className="object-cover transition-all duration-500 group-hover:scale-105"/>
+                                    <Image src={isHomePage ? project.homeImg : project.pageImg} alt={project.name} fill className="object-cover transition-all duration-500 group-hover:scale-105" />
                                 </div>
 
                                 <h3 className="text-secondary text-lg font-semibold text-center mt-3">

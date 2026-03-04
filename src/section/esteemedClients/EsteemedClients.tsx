@@ -9,32 +9,41 @@ type Client = {
   logo: StaticImageData;
 };
 
-export interface ClientsData{
+export interface ClientsData {
   title: string;
   description: string;
   clients: Client[];
 };
 
-const EsteemedClients =() =>{
-  const { title, description, clients } = EsteemedClientsData ;
+const EsteemedClients = () => {
+  const { clients } = EsteemedClientsData;
 
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="bg-white py-20 px-6 overflow-hidden">
+    <section className="bg-white  overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-primary">{title}</h2>
 
-        <p className="mt-6 text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          {description}
-        </p>
+        <div className="  flex flex-col items-center  pb-10">
+          <h2
+            className="text-5xl font-extrabold leading-[1.18] tracking-tight text-secondary"
+          >
+            Our Esteemed<span className="text-primary"> Clients</span>
+          </h2>
 
-        <div className="mt-14 marquee-primary bg-white py-6 ">
+          <div className="w-16 h-1 bg-primary rounded-full"></div>
+
+          <p className="text-gray-500 font-bold leading-relaxed mt-5">Serving businesses across India and expanding into global markets.</p>
+        </div>
+
+
+        <div className=" marquee-primary bg-white  ">
           <div className="marquee-inner">
             {duplicatedClients.map((client, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg border border-gray-200 p-6 flex items-center justify-center min-w-50 mx-6"
+
+                className="bg-white rounded-lg border border-primary/10 p-6 flex items-center justify-center min-w-50 mx-6"
               >
                 {client.logo && (
                   <Image
