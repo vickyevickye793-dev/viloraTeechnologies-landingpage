@@ -7,6 +7,7 @@ import OurProjects from "@/src/section/ourProjects/OurProjects";
 import EsteemedClients from "@/src/section/esteemedClients/EsteemedClients";
 import IndustriesServe from "@/src/section/industriesServe/IndustriesServe";
 import WhyChoseUs from "@/src/section/whyChoseUs/WhyChoseUs";
+import KeyFeature from "@/src/section/keyFeature/KeyFeature";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <OurProjects />
         <WhyChoseUs/>
         <IndustriesServe/>
+        <KeyFeature/>
         <Footer />
       </main>
     </div>

@@ -2,10 +2,6 @@ import { Code2, Smartphone, Megaphone, Search, Globe2, Palette, ShoppingCart, Ap
 import { LucideIcon } from "lucide-react";
 import { StaticImageData } from "next/image";
 
-import service1 from "../../../public/assets/service-offering/h3-service-1.webp"
-import service2 from "../../../public/assets/service-offering/h3-service-2.webp"
-import service3 from "../../../public/assets/service-offering/h3-service-3.webp"
-import service4 from "../../../public/assets/service-offering/h3-service-4.webp"
 
 
 export interface Service {
@@ -25,7 +21,7 @@ export const servicesData: Service[] = [
     description:
       "We implement reliable open source technologies which allow us to deliver you a high quality and cost effective solution.",
     icon: Code2,
-    image:service1
+  
   },
   {
     id: 2,
@@ -33,7 +29,6 @@ export const servicesData: Service[] = [
     description:
       "Mobilize your business with our mobile app development services and solutions to get high performing and customer-centric app.",
     icon: Smartphone,
-    image:service2
   },
   {
     id: 3,
@@ -41,7 +36,6 @@ export const servicesData: Service[] = [
     description:
       "Your complete solution for online marketing strategies to increase online sales and drive highly targeted traffic to your website/apps.",
     icon: Megaphone,
-    image:service3
   },
   {
     id: 4,
@@ -49,7 +43,6 @@ export const servicesData: Service[] = [
     description:
       "We help business owners to generate more local leads, get more customers and grow their business with Local SEO service.",
     icon: Search,
-    image:service4
   },
   {
     id: 5,
