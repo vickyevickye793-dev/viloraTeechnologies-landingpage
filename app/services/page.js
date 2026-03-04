@@ -70,7 +70,9 @@ export default function Page() {
         <div className="bg-WhiteBackground">
             <Header />
             <Services />
-            <Footer />
+            <div className="pt-20">
+                <Footer />
+            </div>
         </div>
     );
 }

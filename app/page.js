@@ -11,18 +11,50 @@ import KeyFeature from "@/src/section/keyFeature/KeyFeature";
 
 export default function Home() {
   return (
-    <div className=" bg-[#e8eef6] overflow-hidden  ">
-      <main>
+    <div className=" bg-[#ffffff] overflow-hidden  ">
+      <div>
         <Header />
+      </div>
+
+      <div className="pb-20 ">
         <Hero />
-        <ServicesSection />
-        <EsteemedClients />
-        <ProcessMethodologies />
-        <OurProjects />
-        <WhyChoseUs/>
-        <IndustriesServe/>
-        <KeyFeature/>
-        <Footer />
+      </div>
+      <main className="px-5">
+
+
+        <div className="py-20">
+          <ServicesSection />
+        </div>
+
+        <div className="py-20">
+          <EsteemedClients />
+        </div>
+
+        <div className="">
+          <ProcessMethodologies />
+        </div>
+
+        <div className="py-20">
+          <OurProjects />
+        </div>
+
+        <div className="py-20 ">
+          <WhyChoseUs />
+        </div>
+
+        {/* <div className="py-20">
+          <IndustriesServe />
+        </div> */}
+
+        <div className="py-20">
+          <KeyFeature />
+        </div>
+
+        <div className="">
+          <Footer />
+        </div>
+
+
       </main>
     </div>
   );

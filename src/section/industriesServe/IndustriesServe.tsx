@@ -73,7 +73,7 @@ const IndustriesServe = () => {
   };
   return (
     <>
-      <section className="relative bg-white py-32 px-6 lg:px-24 overflow-hidden">
+      <section className="relative bg-white  overflow-hidden">
         <div className="relative z-10 text-center mb-16">
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-primary uppercase bg-primary/20 border border-primary/10 px-4 py-1.5 rounded-full mb-6">
             Industries We Serve

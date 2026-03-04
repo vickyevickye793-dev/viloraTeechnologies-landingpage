@@ -1,15 +1,15 @@
 import { Code2, Smartphone, Megaphone, Search, Globe2, Palette, ShoppingCart, AppWindow } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import { StaticImageData } from "next/image";
-
-
+import webdevelopment from "../../../public/assets/services/webdevelopment.png"
+import mobileapp from "../../../public/assets/services/mobileapp.png"
 
 export interface Service {
   id: number;
   title: string;
   description: string;
   icon: LucideIcon;
-  image?:StaticImageData  
+  image?: StaticImageData
 }
 
 
@@ -21,7 +21,8 @@ export const servicesData: Service[] = [
     description:
       "We implement reliable open source technologies which allow us to deliver you a high quality and cost effective solution.",
     icon: Code2,
-  
+    image: webdevelopment,
+
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ export const servicesData: Service[] = [
     description:
       "Mobilize your business with our mobile app development services and solutions to get high performing and customer-centric app.",
     icon: Smartphone,
+    image: mobileapp,
   },
   {
     id: 3,

@@ -3,19 +3,22 @@ import Image from "next/image";
 import expect from "../../../public/assets/expected.png"
 
 const CHECKPOINTS = [
-  "Adopting proven development models like Spiral, Cascade & Prototyping",
-  "Minimizing risk through structured and incremental execution",
-  "Ensuring quality, monitoring, and long-term customer success",
+    "Adopting proven development models like Spiral, Cascade & Prototyping",
+    "Minimizing risk through structured and incremental execution",
+    "Ensuring quality, monitoring, and long-term customer success",
 ];
 export default function ProcessMethodologies() {
 
     return (
 
-        <section className="expertise-section bg-white w-full py-16  ">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <section className="expertise-section bg-white w-full   ">
+            <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 p-20 ">
                 <div
                     className="relative w-full overflow-hidden group"
-                    style={{ aspectRatio: "4/4" }}
+                    style={{
+
+                        clipPath: "polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%)", aspectRatio: "4/4"
+                    }}
                 >
                     <Image
                         src={expect}
@@ -36,7 +39,7 @@ export default function ProcessMethodologies() {
                 <div className="flex flex-col gap-5">
 
                     <span
-                        className="text-[16px] font-bold uppercase tracking-[0.22em] text-primary"
+                        className="text-[16px] font-bold uppercase tracking-[0.22em] text-secondary/60"
 
                     >
                         Long-term growth vision
@@ -45,7 +48,7 @@ export default function ProcessMethodologies() {
                     <h2
                         className="text-[clamp(28px,3.5vw,42px)] font-extrabold leading-[1.18] tracking-tight text-secondary"
                     >
-                        Process & Methodologies
+                        Process & <span className="text-primary">Methodologies</span>
                     </h2>
 
                     <p

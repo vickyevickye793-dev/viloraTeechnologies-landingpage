@@ -97,6 +97,7 @@ export default function OurProducts() {
                         {data.map((project, index) => (
                             <div
                                 key={index}
+                                
                                 className="min-w-full h-[300px] md:min-w-[33.33%] relative group md:h-[480px] rounded-sm overflow-hidden"
                             >
                                 <Image
